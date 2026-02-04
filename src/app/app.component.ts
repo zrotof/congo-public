@@ -1,12 +1,24 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { ToastModule } from 'primeng/toast';
+import { ChallengeComponent } from './features/challenge/challenge.component';
+import { HeaderComponent } from "./core/components/header/header.component";
+import { ChallengeService } from './core/services/challenge.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  imports: [
+    HeaderComponent,
+    ChallengeComponent,
+    ToastModule,
+],
 })
 export class AppComponent {
-  title = 'unblur-it-public';
+
+  private challengeService = inject(ChallengeService);
+
+  ngOnInit(){
+    //this.challengeService.sendClick();
+  }
 }

@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("variables.scss");
+@import "primeicons/primeicons.css";
+
+@layer reset, primeng;
+
+@layer reset {
+
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        background-color: var(--bg-dark);
+        font-family: 'Inter', sans-serif;
+    }
+
+
+    .header-container {
+        max-width: 1400px;
+        padding: 0 1rem;
+    }
+
+    .my-container {
+        max-width: 1300px;
+        padding: 0 1rem;
+    }
+
+    a {
+        cursor: pointer;
+        text-decoration: none;
+    }
+}
+
+@layer primeng {
+    ::ng-deep .p-toast .p-toast-message {
+        background: rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        border-radius: 15px;
+
+        .p-toast-message-icon,
+        .p-toast-icon-close {
+            color: #8b5cf6; // Une touche de violet pour rappeler ton dégradé
+        }
+    }
+}

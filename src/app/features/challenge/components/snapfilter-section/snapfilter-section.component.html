@@ -1,0 +1,77 @@
+<section class="snapfilter-section">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="section-header">
+      <div class="title-area">
+        <span class="badge">
+          <i class="pi pi-camera"></i>
+          SNAPCHAT
+        </span>
+        <h2>Utilisez nos filtres</h2>
+        <p>Rejoignez le mouvement et partagez votre soutien sur Snapchat</p>
+      </div>
+
+      <!-- Total counter -->
+      <div class="total-counter" *ngIf="totalUsage > 0">
+        <span class="count">{{ totalUsage | number }}</span>
+        <span class="label">utilisations</span>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading-state" *ngIf="isLoading">
+      <div class="spinner"></div>
+      <p>Chargement des filtres...</p>
+    </div>
+
+    <!-- Empty state -->
+    <div class="empty-state" *ngIf="!isLoading && filters.length === 0">
+      <i class="pi pi-camera"></i>
+      <p>Aucun filtre disponible pour le moment</p>
+    </div>
+
+    <!-- Filters Grid -->
+    <div class="filters-grid" *ngIf="!isLoading && filters.length > 0">
+      <div 
+        class="filter-card" 
+        *ngFor="let filter of filters; trackBy: trackByFilterId"
+        (click)="onFilterClick(filter)">
+
+        <!-- Image -->
+        <div class="filter-image">
+          <img 
+            *ngIf="filter.imageUrl" 
+            [src]="filter.imageUrl" 
+            [alt]="filter.name || 'Filtre Snapchat'"
+            loading="lazy">
+          <div class="placeholder" *ngIf="!filter.imageUrl">
+            <i class="pi pi-camera"></i>
+          </div>
+
+          <!-- Overlay au hover -->
+          <div class="hover-overlay">
+            <i class="pi pi-external-link"></i>
+            <span>Ouvrir dans Snapchat</span>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="filter-info">
+          <h3>{{ filter.name || 'Filtre Snapchat' }}</h3>
+          <div class="usage-count">
+            <i class="pi pi-users"></i>
+            <span>{{ filter.usageCount | number }} utilisations</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="section-cta" *ngIf="filters.length > 0">
+      <p>Cliquez sur un filtre pour l'ouvrir dans Snapchat</p>
+    </div>
+
+  </div>
+</section>

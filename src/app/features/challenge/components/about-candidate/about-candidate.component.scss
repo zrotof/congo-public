@@ -1,0 +1,342 @@
+.about-candidate {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 5rem;
+    position: relative;
+
+    .african-icons {
+        position: absolute;
+        top: -7rem !important;
+        left: 0;
+        width: 100%;
+        height: 55rem;
+        object-fit: cover;
+        object-position: top;
+        opacity: 0.8;
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 5rem;
+        width: 100%;
+        z-index: 1;
+
+        .top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            gap: 2rem;
+            padding: 4rem 1rem;
+            /* Léger halo lumineux au centre pour attirer l'œil sur le message */
+            background: radial-gradient(circle at center, rgba(0, 43, 92, 0.05) 0%, transparent 70%);
+
+            h2 {
+                /* Dégradé institutionnel Bleu vers Rouge */
+                background: linear-gradient(135deg, #002b5c 30%, #5a2121 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+                /* Taille adaptative : 3rem sur petit écran, jusqu'à 3.5rem sur desktop */
+                font-size: clamp(1.8rem, 5vw, 3.5rem);
+                font-weight: 900;
+                line-height: 1.1;
+                max-width: 1100px;
+                text-transform: uppercase;
+                letter-spacing: -0.5px;
+                margin: 0;
+                filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+            }
+
+            .networks {
+                display: flex;
+                margin-top: 2rem;
+                list-style: none;
+                padding: 0;
+                gap: 15px;
+
+                li {
+                    display: flex;
+                }
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 12px;
+                    /* Look moderne type application officielle */
+                    background-color: #ffffff;
+                    color: #002b5c;
+                    /* Bleu nuit */
+                    border: 1px solid rgba(0, 43, 92, 0.1);
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+                    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+                    &:hover {
+                        transform: translateY(-5px) scale(1.1);
+                        background-color: #002b5c;
+                        /* Fond bleu au survol */
+                        color: #fdbb2d;
+                        /* Icône devient Or au survol */
+                        border-color: #fdbb2d;
+                        box-shadow: 0 10px 20px rgba(0, 43, 92, 0.2);
+                    }
+
+                    i {
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+        }
+
+        .bottom {
+            display: flex;
+            width: 100%;
+            align-items: flex-start;
+
+            .image-wrapper {
+                position: relative;
+                width: 50%;
+                height: 100%;
+
+                img {
+                    object-position: top center;
+                    object-fit: cover;
+                }
+            }
+
+            .about {
+                display: flex;
+                flex-direction: column;
+                background-color: var(--project-blue-secondary-color);
+                color: var(--project-black-primary-color);
+                padding: 5rem 4rem;
+                height: fit-content;
+                width: 50%;
+
+                h3 {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 1.5rem;
+
+                    span {
+                        &:first-child {
+                            font-size: 1.1rem;
+                            margin-bottom: 10px;
+                            padding: 10px 20px;
+                            border: 2px solid var(--project-black-primary-color);
+                            border-radius: 7px;
+                            width: fit-content;
+                            background-color: transparent;
+                        }
+
+                        &:last-child {
+                            line-height: 1;
+                            letter-spacing: -1px;
+                            font-size: 2.4rem;
+                            font-weight: 900;
+                            color: var(--project-blue-primary-color);
+                        }
+                    }
+                }
+
+                p {
+                    font-size: 1rem;
+                    line-height: 1.5;
+                    margin-bottom: 2rem;
+                }
+
+                button {
+                    width: fit-content;
+                    border-radius: 5px;
+                    background-color: var(--project-white-primary-color);
+                    padding: 10px 25px;
+                    color: var(--project-black-primary-color);
+                    font-size: 1.1rem;
+                    transition: all 0.2s ease-in-out;
+                    cursor: pointer;
+                    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+                    &:hover {
+                        background-color: var(--project-yellow-primary-color);
+                        color: var(--project-black-primary-color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1060px) {
+    .about-candidate {
+        .african-icons {
+            top: -6rem !important;
+            height: 44rem;
+        }
+
+        .content {
+            gap: 3rem;
+
+            .top {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                width: 100%;
+                gap: 1rem;
+
+                h2 {
+                    font-size: 2.5rem;
+                }
+
+                .networks {
+                    margin-top: 2rem;
+
+                    a {
+                        width: 45px;
+                        height: 45px;
+
+                        i {
+                            font-size: 1.4rem;
+                        }
+                    }
+                }
+            }
+
+            .bottom {
+                .about {
+                    padding: 2rem;
+
+                    h3 {
+                        span {
+                            &:first-child {
+                                font-size: 1.05rem;
+                                padding: 8px 12px;
+                                border-radius: 5px;
+                            }
+
+                            &:last-child {
+                                font-size: 2.2rem;
+                            }
+                        }
+                    }
+
+                    button {
+                        font-size: 1.05rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 950px) {
+    .about-candidate {
+        .content {
+            .top {
+                align-items: flex-start;
+
+                h2 {
+                    text-align: start;
+                }
+            }
+
+            .bottom {
+                flex-direction: column-reverse;
+
+                .image-wrapper {
+                    width: 100%;
+                    height: 30rem;
+                }
+
+                .about {
+                    width: 100%;
+                    padding: 3rem 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    .about-candidate {
+        margin-top: 10rem;
+
+        .african-icons {
+            height: 40rem;
+        }
+
+        .content {
+            gap: 2rem;
+            margin-top: -2rem;
+
+            .top {
+                align-items: flex-start;
+
+                h2 {
+                    font-size: 2rem;
+                }
+
+                .networks {
+                    margin-top: 1rem;
+                }
+            }
+
+            .bottom {
+                flex-direction: column-reverse;
+
+                .image-wrapper {
+                    width: 100%;
+                    height: 30rem;
+                }
+
+                .about {
+                    width: 100%;
+                    padding: 2rem 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 525px) {
+    .about-candidate {
+
+        .african-icons {
+            height: 40rem;
+        }
+
+        .content {
+
+            .top {
+                align-items: flex-start;
+
+                h2 {
+                    font-size: 1.8rem;
+                }
+            }
+
+            .bottom {
+                .image-wrapper {
+                    height: 20rem;
+                }
+
+                .about {
+                    h3 {
+                        span {
+                            &:last-child {
+                                font-size: 1.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

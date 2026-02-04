@@ -1,0 +1,47 @@
+<div class="about-candidate">
+    <!--
+    <img class="african-icons" ngSrc="../../../../../../images/fond-patrimoine-congo-sassou-nguesso.png" width="100" height="80"
+        alt="Motif élégant de pictogrammes africains dorés sur fond bleu nuit, incluant le contour de la carte de la République du Congo, des masques traditionnels et des éléphants.">
+    -->
+        <div class="content my-container">
+        <div class="top">
+            <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top-bottom">
+                NOTRE MISSION EST DE CONSOLIDER L’ESPÉRANCE DES CONGOLAIS PAR UNE ÉDUCATION D’EXCELLENCE, UNE CULTURE RAYONNANTE ET UNE SOUVERAINETÉ NATIONALE PLEINEMENT AFFIRMÉE.
+            </h2>
+            <ul class="networks">
+                @for (network of networks; track $index) {
+                <li [attr.data-aos-delay]="200*$index" data-aos="fade-left" data-aos-duration="600">
+                    <a href={{network.link}} target="_blank" [attr.aria-label]="network.name">
+                        <i [class]="network.icon"></i>
+                    </a>
+                </li>
+                }
+            </ul>
+        </div>
+        <div class="bottom">
+            <div class="image-wrapper" id="image-wrapper">
+                <img ngSrc="../../../../../../images/denis.jpeg"
+                    alt="À propos de Denis Sassou Nguesso" fill>
+            </div>
+            <div class="about">
+                <h3>
+                    <span>À propos de</span>
+                    <span>Denis Sassou-Nguesso</span>
+                </h3>
+                <p>
+                    Fils du village d'Édou et parachutiste d'élite formé dans les grandes écoles militaires, Denis
+                    Sassou-Nguesso a consacré sa vie au service et à la défense de la souveraineté de la Nation
+                    congolaise. Fort d’une expérience d’homme d'État accompli, il œuvre depuis 1997 à la reconstruction
+                    du pays, garantissant la paix et la stabilité institutionnelle indispensables au développement. Son
+                    engagement pour la modernisation s’incarne à travers la « Nouvelle Espérance » et de grands
+                    chantiers d'infrastructures qui transforment durablement le quotidien de ses concitoyens. Leader
+                    respecté sur la scène internationale, il porte la voix de l’Afrique à la tête d’organisations
+                    majeures comme l’Union Africaine, la CEMAC et l'OUA. Aujourd'hui, il poursuit sa mission avec
+                    détermination pour bâtir un Congo émergent, uni et prospère pour les générations futures.
+                </p>
+                <button data-aos="fade-left" data-aos-duration="1000" routerLink="/le-candidat">En Apprendre Plus Sur Le
+                    Candidat</button>
+            </div>
+        </div>
+    </div>
+</div>

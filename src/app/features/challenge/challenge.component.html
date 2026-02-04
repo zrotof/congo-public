@@ -1,0 +1,19 @@
+<div class="public-wrapper">
+<app-challenge-hero 
+    [imageUrl]="imageUrl()"
+    [isRevealed]="isRevealed()">
+  </app-challenge-hero>
+  
+  <app-visitor-counter 
+    [count]="currentViews()">
+  </app-visitor-counter>
+
+  <app-about-candidate></app-about-candidate>
+
+  <app-snapfilter-section
+      [filters]="filters()"
+      [totalUsage]="totalUsage()"
+      [isLoading]="filtersLoading()"
+      (filterClick)="onFilterClick($event)">
+    </app-snapfilter-section>
+</div>

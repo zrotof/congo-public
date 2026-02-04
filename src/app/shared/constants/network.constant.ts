@@ -1,0 +1,26 @@
+export const NETWORKS = [
+    {
+        sourceImg: "../../../assets/img/social-medias/facebook.png",
+        link: "https://www.facebook.com/SergeEspoirMatomba",
+        name: "Facebook",
+        icon: "pi pi-facebook"
+    },
+    {
+        sourceImg: "../../../assets/img/social-medias/instagram.png",
+        link: "https://www.instagram.com/sergeespoirmatomba/",
+        name: "Instagram",
+        icon: "pi pi-instagram"
+    },
+    {
+        sourceImg: "../../../assets/img/social-medias/twitter.png",
+        link: "https://x.com/s_espoirmatomba?s=21",
+        name: "Twitter",
+        icon: "pi pi-twitter"
+    },
+    {
+        sourceImg: "../../../assets/img/social-medias/youtube.png",
+        link: "https://www.youtube.com/@SeMatomba",
+        name: "Youtube",
+        icon: "pi pi-youtube"
+    }
+]
