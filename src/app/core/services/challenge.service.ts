@@ -1,7 +1,6 @@
 import { Injectable, inject, signal, computed, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment.development';
 import { SocketService } from './socket.service';
 import {
   Challenge,
@@ -9,6 +8,7 @@ import {
   ChallengeRevealData,
   ApiResponse
 } from '../models/challenge.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
