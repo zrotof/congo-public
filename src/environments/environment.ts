@@ -1,5 +1,5 @@
 export const environment = {
-    production: false,
-  apiUrl: 'http://localhost:3000/api',
-   socketUrl: 'http://localhost:3000'
+  production: false,
+  apiUrl: 'https://api-congo.sm-digitalizer.fr/api',
+  socketUrl: 'https://api-congo.sm-digitalizer.fr'
 };
