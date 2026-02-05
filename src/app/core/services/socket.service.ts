@@ -21,14 +21,23 @@ export class SocketService implements OnDestroy {
 
     this.socket = io(environment.socketUrl, {
       withCredentials: true,
-      transports: ['websocket', 'polling'],
+      // ✅ SOLUTION : Forcer le polling uniquement (pas de WebSocket)
+      transports: ['polling'],
+      // ✅ Upgrade désactivé pour éviter les tentatives WebSocket
+      upgrade: false,
+      // ✅ Options de reconnexion
       reconnection: true,
-      reconnectionAttempts: 5,
-      reconnectionDelay: 1000
+      reconnectionAttempts: 10,
+      reconnectionDelay: 1000,
+      reconnectionDelayMax: 5000,
+      // ✅ Timeout plus long pour le polling
+      timeout: 20000,
+      // ✅ Forcer le nouveau parser
+      forceNew: true
     });
 
     this.socket.on('connect', () => {
-      console.log('✅ Socket connecté:', this.socket?.id);
+      console.log('✅ Socket connecté (polling):', this.socket?.id);
       this.isConnected.set(true);
       this.connectionError.set(null);
     });
@@ -42,6 +51,24 @@ export class SocketService implements OnDestroy {
       console.error('⚠️ Erreur Socket:', error.message);
       this.connectionError.set(error.message);
       this.isConnected.set(false);
+    });
+
+    this.socket.on('reconnect', (attemptNumber) => {
+      console.log('🔄 Reconnecté après', attemptNumber, 'tentative(s)');
+      this.isConnected.set(true);
+    });
+
+    this.socket.on('reconnect_attempt', (attemptNumber) => {
+      console.log('🔄 Tentative de reconnexion #', attemptNumber);
+    });
+
+    this.socket.on('reconnect_error', (error) => {
+      console.error('⚠️ Erreur de reconnexion:', error.message);
+    });
+
+    this.socket.on('reconnect_failed', () => {
+      console.error('❌ Reconnexion échouée après toutes les tentatives');
+      this.connectionError.set('Impossible de se reconnecter au serveur');
     });
   }
 
@@ -58,7 +85,12 @@ export class SocketService implements OnDestroy {
       console.log('📤 Émis:', event, data || '');
       this.socket.emit(event, data);
     } else {
-      console.warn('⚠️ Socket non connecté');
+      console.warn('⚠️ Socket non connecté, mise en file d\'attente...');
+      // Réessayer après connexion
+      this.socket?.once('connect', () => {
+        console.log('📤 Émis (après reconnexion):', event, data || '');
+        this.socket?.emit(event, data);
+      });
     }
   }
 
