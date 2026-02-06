@@ -4,7 +4,7 @@ header {
     justify-content: center;
     width: 100%;
     position: fixed;
-    z-index: 9999;
+    z-index: 10;
     height: 9rem;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -17,11 +17,27 @@ header {
         width: 100%;
         gap: 5rem;
 
-        .logo {
-            transition: all 0.2s ease-in-out;
-            cursor: pointer;
-            object-fit: cover;
+        .left{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .logo {
+                border-radius: 50%;
+                object-position: center;
+                transition: all 0.2s ease-in-out;
+                cursor: pointer;
+                object-fit: cover;
+            }
+
+            p{
+                color: var(--project-white-primary-color);
+                font-weight: 900;
+                font-size: 1.2rem;
+            }
+
         }
+
 
         .blue-logo {
             display: none;
@@ -184,12 +200,25 @@ header {
 
     .content {
 
-        .blue-logo {
-            display: block;
-        }
+        .left{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
 
-        .white-logo {
-            display: none;
+            .logo {
+                border-radius: 50%;
+                object-position: center;
+                transition: all 0.2s ease-in-out;
+                cursor: pointer;
+                object-fit: cover;
+            }
+
+            p{
+                background: linear-gradient(135deg, #002b5c 30%, #5a2121 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
         }
 
         nav {

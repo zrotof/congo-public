@@ -16,7 +16,6 @@
 
     body {
         margin: 0;
-        background-color: var(--bg-dark);
         font-family: 'Inter', sans-serif;
     }
 
@@ -38,16 +37,32 @@
 }
 
 @layer primeng {
-    ::ng-deep .p-toast .p-toast-message {
-        background: rgba(255, 255, 255, 0.1) !important;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: white;
-        border-radius: 15px;
+    .p-overlay-mask {
+        // On remplace le noir uni par un effet de profondeur
+        background: rgba(0, 0, 0, 0.85) !important;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        .p-toast-message-icon,
-        .p-toast-icon-close {
-            color: #8b5cf6; // Une touche de violet pour rappeler ton dégradé
+        // Effet de drapeau en arrière-plan du masque
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            // Dégradé diagonal aux couleurs du Congo (Vert, Jaune, Rouge)
+            background: linear-gradient(135deg, 
+                rgba(0, 107, 63, 0.2) 0%,   /* Vert */
+                rgba(251, 255, 0, 0.1) 45%, /* Jaune */
+                rgba(251, 255, 0, 0.1) 55%, /* Jaune */
+                rgba(206, 17, 38, 0.2) 100% /* Rouge */
+            );
+            z-index: -1;
+            pointer-events: none;
         }
     }
 }

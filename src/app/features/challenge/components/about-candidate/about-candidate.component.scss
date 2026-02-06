@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-bottom: 5rem;
     position: relative;
 
     .african-icons {
@@ -31,8 +30,6 @@
             text-align: center;
             width: 100%;
             gap: 2rem;
-            padding: 4rem 1rem;
-            /* Léger halo lumineux au centre pour attirer l'œil sur le message */
             background: radial-gradient(circle at center, rgba(0, 43, 92, 0.05) 0%, transparent 70%);
 
             h2 {
@@ -42,7 +39,7 @@
                 -webkit-text-fill-color: transparent;
 
                 /* Taille adaptative : 3rem sur petit écran, jusqu'à 3.5rem sur desktop */
-                font-size: clamp(1.8rem, 5vw, 3.5rem);
+                font-size: clamp(1.8rem, 5vw, 3rem);
                 font-weight: 900;
                 line-height: 1.1;
                 max-width: 1100px;

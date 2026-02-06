@@ -1,4 +1,47 @@
-<app-header></app-header>
-<app-challenge></app-challenge>
+@if (isBrowser ) {
 
-<p-toast></p-toast>
+<p-dialog [(visible)]="displayWelcome" [modal]="true" [showHeader]="false" [closable]="false"
+    [style]="{width: '60vw', 'max-width': '900px'}" [breakpoints]="{'960px': '85vw', '640px': '95vw'}"
+    styleClass="custom-modal">
+
+    <div class="image-wrapper">
+        <img ngSrc="../../images/denis.jpeg" alt="Denis Sassou-Nguesso" fill priority>
+    </div>
+
+    <div class="texts">
+        <div class="top">
+            <h2 class="title">Unissons nos efforts</h2>
+            <h4 class="subtitle">Pour la continuité du développement</h4>
+    
+            <p class="description">
+                Bienvenue sur l'espace de mobilisation numérique pour la candidature du
+                <strong>Président Denis Sassou-Nguesso</strong>.
+            </p>
+    
+            <div class="features">
+                <div class="feature-item">
+                    <i class="pi pi-eye"></i>
+                    <span>Plus vous visitez, plus la vision se révèle. Votre présence lève le voile sur l'avenir.</span>
+                </div>
+                <div class="feature-item">
+                    <i class="pi pi-camera"></i>
+                    <span>Utilisez nos filtres Snapchat pour porter fièrement nos couleurs.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <button pButton type="button" label="J'ai compris" class="p-button-gold" (click)="onAccept()">
+            </button>
+        </div>
+
+    </div>
+</p-dialog>
+
+@if (displayPage) {
+    <app-header></app-header>
+    <app-challenge></app-challenge>
+    
+    <p-toast></p-toast>
+}
+}

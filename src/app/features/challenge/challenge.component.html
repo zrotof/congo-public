@@ -1,12 +1,16 @@
 <div class="public-wrapper">
 <app-challenge-hero 
     [imageUrl]="imageUrl()"
-    [isRevealed]="isRevealed()">
+    [isRevealed]="isRevealed()"
+    [count]="currentViews()"
+    >
   </app-challenge-hero>
-  
+
+  <!--
   <app-visitor-counter 
     [count]="currentViews()">
   </app-visitor-counter>
+ -->
 
   <app-about-candidate></app-about-candidate>
 
