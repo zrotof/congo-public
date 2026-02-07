@@ -1,23 +1,16 @@
 <div class="public-wrapper">
-<app-challenge-hero 
-    [imageUrl]="imageUrl()"
-    [isRevealed]="isRevealed()"
-    [count]="currentViews()"
-    >
+  <app-challenge-hero [imageUrl]="imageUrl()" [isRevealed]="isRevealed()" [count]="currentViews()">
   </app-challenge-hero>
 
-  <!--
-  <app-visitor-counter 
-    [count]="currentViews()">
-  </app-visitor-counter>
- -->
-
-  <app-about-candidate></app-about-candidate>
+  <app-global-counter [count]="totalVisits()">
+  </app-global-counter>
 
   <app-snapfilter-section
       [filters]="filters()"
-      [totalUsage]="totalUsage()"
+      [totalUsage]="totalFilterUsage()"
       [isLoading]="filtersLoading()"
-      (filterClick)="onFilterClick($event)">
+      (filterClick)="onFilterClick($event)"> <!-- Écoute l'event de clic -->
     </app-snapfilter-section>
+
+  <app-about-candidate></app-about-candidate>
 </div>

@@ -6,6 +6,7 @@ import { ChallengeService } from './core/services/challenge.service';
 import { isPlatformBrowser, NgOptimizedImage } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { Dialog } from 'primeng/dialog';
+import { FooterComponent } from "./core/components/footer/footer.component";
 
 @Component({
   selector: 'app-root',
@@ -18,8 +19,9 @@ import { Dialog } from 'primeng/dialog';
     ToastModule,
     Dialog,
     ButtonModule,
-    NgOptimizedImage
-  ]
+    NgOptimizedImage,
+    FooterComponent
+]
 })
 
 export class AppComponent {

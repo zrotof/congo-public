@@ -2,11 +2,13 @@ import { Component, OnInit, OnDestroy, inject, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChallengeService } from '../../core/services/challenge.service';
 import { ChallengeHeroComponent } from './components/challenge-hero/challenge-hero.component';
-import { VisitorsCounterComponent } from './components/visitors-counter/visitors-counter.component';
-import { SnapFilterSectionComponent } from './components/snapfilter-section/snapfilter-section.component';
-import { SnapFilterService } from '../../core/services/snapfilter.service';
 import { SnapFilter } from '../../core/models/snapfilter.model';
 import { AboutCandidateComponent } from "./components/about-candidate/about-candidate.component";
+import { GlobalCounterComponent } from './components/global-counter/global-counter.component';
+import { GlobalStatsService } from '../../core/services/global-stats.service';
+import { FilterService } from '../../core/services/filter.service';
+
+import { SnapFilterSectionComponent } from './components/snapfilter-section/snapfilter-section.component';
 
 @Component({
   selector: 'app-challenge',
@@ -14,17 +16,20 @@ import { AboutCandidateComponent } from "./components/about-candidate/about-cand
   imports: [
     CommonModule,
     ChallengeHeroComponent,
-    VisitorsCounterComponent,
+    GlobalCounterComponent,
     AboutCandidateComponent,
     SnapFilterSectionComponent
-],
+  ],
   templateUrl: './challenge.component.html',
   styleUrls: ['./challenge.component.scss']
 })
 
 export class ChallengeComponent implements OnInit, OnDestroy {
   private challengeService = inject(ChallengeService);
-  private snapFilterService = inject(SnapFilterService);
+  private snapFilterService = inject(FilterService);
+  private globalStatsService = inject(GlobalStatsService);
+  private filterService = inject(FilterService);
+
 
   challenge = this.challengeService.challenge;
   imageUrl = this.challengeService.imageUrl;
@@ -34,15 +39,20 @@ export class ChallengeComponent implements OnInit, OnDestroy {
   error = this.challengeService.error;
   isConnected = this.challengeService.isConnected;
 
-    // Filters signals
+  // ✅ Ce signal contient la valeur à passer
+  totalVisits = this.globalStatsService.totalVisits;
+
+  // Filters signals
+// Filtres (Snapchat/TikTok) ✅
   filters = this.snapFilterService.filters;
-  totalUsage = this.snapFilterService.totalUsage;
+  totalFilterUsage = this.snapFilterService.totalUsage;
   filtersLoading = this.snapFilterService.isLoading;
 
   ngOnInit(): void {
     this.challengeService.loadChallenge();
     this.snapFilterService.loadFilters();
-
+    this.globalStatsService.init();
+    this.snapFilterService.loadFilters();
   }
 
   ngOnDestroy(): void {
@@ -58,8 +68,8 @@ export class ChallengeComponent implements OnInit, OnDestroy {
     this.snapFilterService.useFilter(filter.id);
 
     // 2. Ouvrir le lien Snapchat
-    if (filter.snapchatUrl) {
-      window.open(filter.snapchatUrl, '_blank');
+    if (filter.filterUrl) {
+      window.open(filter.filterUrl, '_blank');
     }
   }
 }

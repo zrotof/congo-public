@@ -1,21 +1,19 @@
-<section class="snapfilter-section">
-  <div class="container">
+<section class="filters-section">
 
-    <!-- Header -->
+  <div class="content my-container">
+
+    <!-- Header Global -->
     <div class="section-header">
-      <div class="title-area">
-        <span class="badge">
-          <i class="pi pi-camera"></i>
-          SNAPCHAT
-        </span>
-        <h2>Utilisez nos filtres</h2>
-        <p>Rejoignez le mouvement et partagez votre soutien sur Snapchat</p>
+      <div class="header-content">
+        <span class="badge">Engagement Numérique</span>
+        <h2>PORTEZ NOS COULEURS</h2>
+        <p>Utilisez nos filtres exclusifs sur vos réseaux préférés et partagez votre soutien.</p>
       </div>
-
-      <!-- Total counter -->
+      
+      <!-- Compteur Total -->
       <div class="total-counter" *ngIf="totalUsage > 0">
         <span class="count">{{ totalUsage | number }}</span>
-        <span class="label">utilisations</span>
+        <span class="label">utilisations totales</span>
       </div>
     </div>
 
@@ -25,52 +23,76 @@
       <p>Chargement des filtres...</p>
     </div>
 
-    <!-- Empty state -->
+    <!-- Empty State -->
     <div class="empty-state" *ngIf="!isLoading && filters.length === 0">
-      <i class="pi pi-camera"></i>
-      <p>Aucun filtre disponible pour le moment</p>
+      <p>Bientôt disponible...</p>
     </div>
 
-    <!-- Filters Grid -->
-    <div class="filters-grid" *ngIf="!isLoading && filters.length > 0">
-      <div 
-        class="filter-card" 
-        *ngFor="let filter of filters; trackBy: trackByFilterId"
-        (click)="onFilterClick(filter)">
+    <!-- Contenu Filtres -->
+    <div class="filters-content" *ngIf="!isLoading">
 
-        <!-- Image -->
-        <div class="filter-image">
-          <img 
-            *ngIf="filter.imageUrl" 
-            [src]="filter.imageUrl" 
-            [alt]="filter.name || 'Filtre Snapchat'"
-            loading="lazy">
-          <div class="placeholder" *ngIf="!filter.imageUrl">
-            <i class="pi pi-camera"></i>
-          </div>
-
-          <!-- Overlay au hover -->
-          <div class="hover-overlay">
-            <i class="pi pi-external-link"></i>
-            <span>Ouvrir dans Snapchat</span>
-          </div>
+      <!-- 🎵 TIKTOK SECTION -->
+      <div class="platform-group" *ngIf="tiktokFilters.length > 0">
+        <div class="platform-header">
+          <i class="pi pi-video tiktok-icon"></i>
+          <h3>Filtres TikTok</h3>
         </div>
 
-        <!-- Info -->
-        <div class="filter-info">
-          <h3>{{ filter.name || 'Filtre Snapchat' }}</h3>
-          <div class="usage-count">
-            <i class="pi pi-users"></i>
-            <span>{{ filter.usageCount | number }} utilisations</span>
+        <div class="filters-grid">
+          <div 
+            class="filter-card tiktok" 
+            *ngFor="let filter of tiktokFilters; trackBy: trackByFilterId"
+            (click)="onFilterClick(filter)">
+            
+            <div class="image-wrapper">
+              <img [src]="filter.imageUrl" [alt]="filter.name">
+              <div class="overlay">
+                <i class="pi pi-play"></i>
+                <span>Utiliser</span>
+              </div>
+            </div>
+
+            <div class="card-info">
+              <h4>{{ filter.name || 'Filtre TikTok' }}</h4>
+              <span class="usage">
+                <i class="pi pi-eye"></i> {{ filter.usageCount | number }}
+              </span>
+            </div>
           </div>
         </div>
-
       </div>
-    </div>
 
-    <!-- CTA -->
-    <div class="section-cta" *ngIf="filters.length > 0">
-      <p>Cliquez sur un filtre pour l'ouvrir dans Snapchat</p>
+      <!-- 👻 SNAPCHAT SECTION -->
+      <div class="platform-group" *ngIf="snapchatFilters.length > 0">
+        <div class="platform-header">
+          <i class="pi pi-camera snap-icon"></i>
+          <h3>Filtres Snapchat</h3>
+        </div>
+
+        <div class="filters-grid">
+          <div 
+            class="filter-card snapchat" 
+            *ngFor="let filter of snapchatFilters; trackBy: trackByFilterId"
+            (click)="onFilterClick(filter)">
+            
+            <div class="image-wrapper">
+              <img [src]="filter.imageUrl" [alt]="filter.name">
+              <div class="overlay">
+                <i class="pi pi-camera"></i>
+                <span>Scanner</span>
+              </div>
+            </div>
+
+            <div class="card-info">
+              <h4>{{ filter.name || 'Filtre Snapchat' }}</h4>
+              <span class="usage">
+                <i class="pi pi-eye"></i> {{ filter.usageCount | number }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </div>

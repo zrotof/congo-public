@@ -1,0 +1,183 @@
+// 🎨 Palette Congo-Brazzaville
+$congo-green: #009543;
+$congo-yellow: #FBDE4A;
+$congo-red: #DC241F;
+$dark-text: #1F2937;
+$soft-bg: #F9FAFB;
+
+.counter-section {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 55rem;
+    background-color: $soft-bg;
+    font-family: 'Inter', -apple-system, sans-serif;
+
+    img {
+        object-fit: cover;
+        object-position: top;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6rem;
+        width: 100%;
+        padding-top: 6rem;
+
+        h2 {
+            /* Dégradé institutionnel Bleu vers Rouge */
+            background: linear-gradient(135deg, #002b5c 30%, #5a2121 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            /* Taille adaptative : 3rem sur petit écran, jusqu'à 3.5rem sur desktop */
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 900;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            background: rgba(255, 255, 255, 0.765);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 2rem 4rem;
+            max-width: 600px;
+            width: 100%;
+
+            // Conteneur des chiffres
+            .counter-container {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+                z-index: 2;
+
+                .counter-card {
+                    background: #002b5c; // Gris très léger
+                    border-radius: 12px;
+                    width: 130px;
+                    height: 120px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    // Bordure supérieure fine pour la touche de couleur
+                    border-top: 8px solid transparent;
+
+                    // Variation des bordures pour rappeler le drapeau
+                    &:nth-child(1) {
+                        border-top-color: $congo-green;
+                    }
+
+                    &:nth-child(2) {
+                        border-top-color: $congo-yellow;
+                    }
+
+                    &:nth-child(3) {
+                        border-top-color: $congo-red;
+                    }
+
+                    .number {
+                        font-size: 3.5rem;
+                        font-weight: 700;
+                        color: $dark-text;
+                        font-variant-numeric: tabular-nums; // Aligne les chiffres
+                        letter-spacing: -2px;
+                        color: #ffffff;
+                    }
+                }
+            }
+
+            a {
+                display: inline-block;
+                padding: 1rem 2rem;
+                border-radius: 50px;
+                font-weight: 600;
+                font-size: 0.95rem;
+                text-transform: uppercase;
+                text-decoration: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                z-index: 2;
+
+                // Style "Outline" élégant avec la couleur rouge
+                background: transparent;
+                color: $congo-red;
+                border: 2px solid $congo-red;
+
+                &:hover {
+                    background: $congo-red;
+                    color: #ffffff;
+                    box-shadow: 0 10px 20px rgba($congo-red, 0.2);
+                    transform: translateY(-2px);
+                }
+            }
+        }
+    }
+}
+
+// 📱 RESPONSIVE
+@media (max-width: 992px) {
+    .counter-section .content-wrapper {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-bottom: 0; // L'image est en bas
+
+        .background-image {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            margin-top: 2rem;
+            opacity: 0.8;
+
+            img {
+                object-position: bottom center;
+                mask-image: linear-gradient(to top, black, transparent);
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .counter-section {
+        padding: 3rem 1rem;
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        .content-wrapper {
+            padding: 2rem 1rem 0 1rem;
+            gap: 2rem;
+
+            .counter-container {
+                gap: 0.5rem;
+
+                .counter-card {
+                    width: 80px;
+                    height: 100px;
+
+                    .number {
+                        font-size: 2rem;
+                    }
+                }
+            }
+
+            a {
+                width: 100%;
+            }
+        }
+    }
+}

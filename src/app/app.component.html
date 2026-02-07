@@ -1,8 +1,18 @@
 @if (isBrowser ) {
 
+@if (displayWelcome) {
+<div class="video-mask">
+    <video autoplay loop [muted]="true" onloadedmetadata="this.muted = true" playsinline>
+        <source src="../../videos/flag-congo.mp4" type="video/mp4">
+    </video>
+    <!-- Overlay sombre pour la lisibilité du popup -->
+    <div class="mask-overlay"></div>
+</div>
+}
+
 <p-dialog [(visible)]="displayWelcome" [modal]="true" [showHeader]="false" [closable]="false"
     [style]="{width: '60vw', 'max-width': '900px'}" [breakpoints]="{'960px': '85vw', '640px': '95vw'}"
-    styleClass="custom-modal">
+    styleClass="custom-modal" [maskStyle]="{'background': 'transparent', 'backdrop-filter': 'none'}">
 
     <div class="image-wrapper">
         <img ngSrc="../../images/denis.jpeg" alt="Denis Sassou-Nguesso" fill priority>
@@ -12,12 +22,12 @@
         <div class="top">
             <h2 class="title">Unissons nos efforts</h2>
             <h4 class="subtitle">Pour la continuité du développement</h4>
-    
+
             <p class="description">
                 Bienvenue sur l'espace de mobilisation numérique pour la candidature du
                 <strong>Président Denis Sassou-Nguesso</strong>.
             </p>
-    
+
             <div class="features">
                 <div class="feature-item">
                     <i class="pi pi-eye"></i>
@@ -39,9 +49,9 @@
 </p-dialog>
 
 @if (displayPage) {
-    <app-header></app-header>
-    <app-challenge></app-challenge>
-    
-    <p-toast></p-toast>
+<app-header></app-header>
+<app-challenge></app-challenge>
+<app-footer></app-footer>
+<p-toast></p-toast>
 }
 }

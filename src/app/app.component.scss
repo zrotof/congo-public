@@ -1,3 +1,30 @@
+.video-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1100; // Doit être sous le dialog (PrimeNG dialog est souvent > 1100)
+    overflow: hidden;
+
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // Rplit tout l'écran
+    }
+
+    // Overlay pour assombrir et flouter
+    .mask-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.322);
+        backdrop-filter: blur(1px);
+    }
+}
+
 .custom-modal {
     display: flex;
     height: 30rem;
@@ -81,7 +108,7 @@
                 }
             }
 
-            .bottom{
+            .bottom {
                 padding: 0 2rem;
                 width: fit-content;
 
@@ -93,7 +120,7 @@
                     letter-spacing: 1px;
                     box-shadow: 0 4px 15px rgba(210, 161, 6, 0.3);
                     width: fit-content;
-    
+
                     &:hover {
                         transform: translateY(-2px);
                         box-shadow: 0 6px 20px rgba(210, 161, 6, 0.4);
