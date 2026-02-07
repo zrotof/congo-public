@@ -1,7 +1,7 @@
 import { Injectable, inject, signal, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SocketService } from './socket.service';
-import { environment } from '../../../environments/environment.development'; // Adapte le chemin si nécessaire
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
