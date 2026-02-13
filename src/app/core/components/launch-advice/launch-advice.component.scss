@@ -1,0 +1,210 @@
+.video-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1100; // Doit être sous le dialog (PrimeNG dialog est souvent > 1100)
+    overflow: hidden;
+
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // Rplit tout l'écran
+    }
+
+    // Overlay pour assombrir et flouter
+    .mask-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.322);
+        backdrop-filter: blur(1px);
+    }
+}
+
+.custom-modal {
+    display: flex;
+    height: 30rem;
+    border: none;
+
+    .p-dialog-content {
+        display: flex;
+        padding: 0 !important;
+        overflow: hidden;
+
+        .image-wrapper {
+            position: relative;
+            flex: 1;
+            border-radius: 0.65rem 0 0 0.65rem;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            img {
+                object-fit: cover;
+            }
+        }
+
+        .texts {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 3rem 0 2rem;
+
+            .top {
+                display: flex;
+                flex-direction: column;
+                padding: 0 1.8rem;
+
+                .title {
+                    color: #006b3f;
+                    font-size: 2.35rem;
+                    font-weight: 900;
+                    letter-spacing: -1px;
+                    line-height: 1;
+                }
+
+                .subtitle {
+                    color: #d2a106;
+                    margin-top: 0.2rem;
+                    margin-bottom: 1.5rem;
+                    font-size: 1rem;
+                    font-weight: 700;
+                }
+
+                .description {
+                    line-height: 1.3;
+                    margin-bottom: 2rem;
+                    font-size: 1rem;
+                    color: var(--project-black-primary-color);
+                }
+
+                .features {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    .feature-item {
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 10px;
+                        font-size: 0.95rem;
+                        color: var(--project-black-primary-color);
+                        font-weight: 100;
+
+                        i {
+                            color: #006b3f;
+                            font-weight: bold;
+                            margin-top: 3px;
+                        }
+                    }
+                }
+            }
+
+            .bottom {
+                padding: 0 2rem;
+                width: fit-content;
+
+                .p-button-gold {
+                    background: linear-gradient(45deg, #d2a106, #fdbb2d);
+                    border: none;
+                    padding: 0.65rem 1rem;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                    box-shadow: 0 4px 15px rgba(210, 161, 6, 0.3);
+                    width: fit-content;
+
+                    &:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 6px 20px rgba(210, 161, 6, 0.4);
+                    }
+                }
+            }
+
+        }
+    }
+
+}
+
+
+@media (max-width: 834px) {
+    .custom-modal {
+        height: fit-content;
+
+        .p-dialog-content {
+            display: flex;
+            flex-direction: column;
+
+            .image-wrapper {
+                flex: none;
+                border-radius: 0.65rem 0.65rem 0 0;
+                width: 100%;
+                height: 20rem;
+
+                img {
+                    object-position: top;
+                }
+            }
+
+            .texts {
+                gap: 1.5rem;
+                padding: 1.5rem;
+
+                .top {
+                    padding: 0;
+
+                    .title {
+                        font-size: 1.8rem;
+                    }
+
+                    .features {
+                        gap: 0.5rem;
+                    }
+                }
+
+                .bottom {
+                    padding: 0;
+                }
+            }
+        }
+
+    }
+}
+
+@media (max-width: 834px) {
+    .custom-modal {
+        .p-dialog-content {
+            .image-wrapper {
+                height: 15rem;
+            }
+
+            .texts {
+                gap: 1.5rem;
+                padding: 1.5rem 1rem;
+
+                .top {
+                    padding: 0;
+
+                    .title {
+                        font-size: 1.8rem;
+                    }
+
+                    .features {
+                        gap: 0.5rem;
+                    }
+                }
+
+                .bottom {
+                    padding: 0 1rem;
+                }
+            }
+        }
+
+    }
+}

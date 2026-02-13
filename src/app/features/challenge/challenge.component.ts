@@ -24,11 +24,10 @@ import { SnapFilterSectionComponent } from './components/snapfilter-section/snap
   styleUrls: ['./challenge.component.scss']
 })
 
-export class ChallengeComponent implements OnInit, OnDestroy {
+export default class ChallengeComponent implements OnInit {
   private challengeService = inject(ChallengeService);
-  private snapFilterService = inject(FilterService);
-  private globalStatsService = inject(GlobalStatsService);
   private filterService = inject(FilterService);
+  private globalStatsService = inject(GlobalStatsService);
 
 
   challenge = this.challengeService.challenge;
@@ -44,28 +43,18 @@ export class ChallengeComponent implements OnInit, OnDestroy {
 
   // Filters signals
 // Filtres (Snapchat/TikTok) ✅
-  filters = this.snapFilterService.filters;
-  totalFilterUsage = this.snapFilterService.totalUsage;
-  filtersLoading = this.snapFilterService.isLoading;
+  filters = this.filterService.filters;
+  totalFilterUsage = this.filterService.totalUsage;
+  filtersLoading = this.filterService.isLoading;
 
   ngOnInit(): void {
     this.challengeService.loadChallenge();
-    this.snapFilterService.loadFilters();
-    this.globalStatsService.init();
-    this.snapFilterService.loadFilters();
-  }
-
-  ngOnDestroy(): void {
-    this.challengeService.leaveChallenge();
-    this.challengeService.cleanup();
-
-    this.snapFilterService.leaveFilters();
-    this.snapFilterService.cleanup();
+    this.filterService.loadFilters();
   }
 
   onFilterClick(filter: SnapFilter): void {
     // 1. Incrémenter le compteur via Socket
-    this.snapFilterService.useFilter(filter.id);
+    this.filterService.useFilter(filter.id);
 
     // 2. Ouvrir le lien Snapchat
     if (filter.filterUrl) {

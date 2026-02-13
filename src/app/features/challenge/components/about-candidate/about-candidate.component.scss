@@ -4,6 +4,7 @@
     width: 100%;
     position: relative;
     padding-top: 7rem;
+    overflow: hidden;
 
     .country{
         position: absolute;
@@ -47,11 +48,9 @@
                 background: linear-gradient(135deg, #002b5c 30%, #5a2121 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
-
-                /* Taille adaptative : 3rem sur petit écran, jusqu'à 3.5rem sur desktop */
                 font-size: clamp(1.8rem, 5vw, 3rem);
                 font-weight: 900;
-                line-height: 1.1;
+                line-height: 1;
                 max-width: 1100px;
                 text-transform: uppercase;
                 letter-spacing: -0.5px;
@@ -182,29 +181,15 @@
 
 @media all and (max-width: 1060px) {
     .about-candidate {
-        .african-icons {
-            top: -6rem !important;
-            height: 44rem;
-        }
+        padding-top: 4rem;
 
         .content {
-            gap: 3rem;
+            gap: 4rem;
 
             .top {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                width: 100%;
                 gap: 1rem;
 
-                h2 {
-                    font-size: 2.5rem;
-                }
-
                 .networks {
-                    margin-top: 2rem;
-
                     a {
                         width: 45px;
                         height: 45px;
@@ -246,6 +231,8 @@
 @media all and (max-width: 950px) {
     .about-candidate {
         .content {
+            gap: 3rem;
+
             .top {
                 align-items: flex-start;
 
@@ -264,7 +251,7 @@
 
                 .about {
                     width: 100%;
-                    padding: 3rem 1rem;
+                    padding: 3rem 0;
                 }
             }
         }
@@ -273,26 +260,12 @@
 
 @media all and (max-width: 768px) {
     .about-candidate {
-        margin-top: 10rem;
-
-        .african-icons {
-            height: 40rem;
-        }
 
         .content {
             gap: 2rem;
-            margin-top: -2rem;
 
             .top {
                 align-items: flex-start;
-
-                h2 {
-                    font-size: 2rem;
-                }
-
-                .networks {
-                    margin-top: 1rem;
-                }
             }
 
             .bottom {
@@ -305,7 +278,7 @@
 
                 .about {
                     width: 100%;
-                    padding: 2rem 1rem;
+                    padding: 2rem 0;
                 }
             }
         }

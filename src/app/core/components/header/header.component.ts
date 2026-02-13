@@ -1,7 +1,7 @@
 import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ActivationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 
-import { NgClass, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 
 import { MenuItem, MessageService } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
@@ -15,12 +15,10 @@ import { DialogModule } from 'primeng/dialog';
     encapsulation: ViewEncapsulation.None,
     providers: [MessageService],
     imports: [
-        NgClass,
         NgOptimizedImage,
         MenuModule,
         DialogModule,
         RouterLink,
-        RouterLinkActive
     ]
 })
 
@@ -40,22 +38,7 @@ export class HeaderComponent implements OnInit{
   constructor(
     private _renderer: Renderer2,
     private router : Router
-  ) { 
-    this.items = [
-      {
-          label: 'Ambassadeur De Campagne',
-          icon: 'pi pi-user-plus',
-          routerLink: '/devenir-ambassadeur-de-campagne'
-      },
-/*
-      { 
-        label: 'Faire Un Don', 
-        icon: 'pi pi-heart', 
-        routerLink: '/dons' 
-      }
-*/
-    ];
-  }
+  ) { }
   
   ngOnInit(): void {
     this.onRoutingEvent();

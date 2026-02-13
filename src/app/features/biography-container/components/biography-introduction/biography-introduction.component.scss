@@ -1,0 +1,134 @@
+.biography-introduction {
+    display: flex;
+    justify-content: center;
+    background-color: var(--project-white-primary-color);
+    z-index: 2;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .header-networks {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+
+            h3 {
+                font-size: 2rem;
+                letter-spacing: -1px;
+                font-weight: 900;
+                background: linear-gradient(135deg, #002b5c 30%, #5a2121 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .networks {
+                display: flex;
+                list-style: none;
+                padding: 0;
+                gap: 15px;
+
+                li {
+                    display: flex;
+                }
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 12px;
+                    /* Look moderne type application officielle */
+                    background-color: #ffffff;
+                    color: #002b5c;
+                    /* Bleu nuit */
+                    border: 1px solid rgba(0, 43, 92, 0.1);
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+                    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+                    &:hover {
+                        transform: translateY(-5px) scale(1.1);
+                        background-color: #002b5c;
+                        /* Fond bleu au survol */
+                        color: #fdbb2d;
+                        /* Icône devient Or au survol */
+                        border-color: #fdbb2d;
+                        box-shadow: 0 10px 20px rgba(0, 43, 92, 0.2);
+                    }
+
+                    i {
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+        }
+
+        p {
+            max-width: 700px;
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.8;
+        }
+
+    }
+}
+
+@media all and (max-width: 1120px) {
+    .biography-introduction {
+        padding-top: 3rem;
+
+        .content {
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+
+            .header-networks {
+                align-items: center;
+
+                h3 {
+                    text-align: center;
+                }
+            }
+
+            .networks {
+                a {
+                    width: 45px;
+                    height: 45px;
+
+                    i {
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+
+            p {
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1120px) {
+    .biography-introduction {
+        .content {
+            .header-networks {
+                .networks {
+                    li {
+                        a {
+                            width: 40px;
+                            height: 40px;
+
+                            fa-icon {
+                                font-size: 1.2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

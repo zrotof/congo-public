@@ -13,7 +13,5 @@ import { NETWORKS } from '../../../../shared/constants/network.constant'
 })
 
 export class AboutCandidateComponent {
-
-  networks = NETWORKS;
-
+  protected readonly networks = NETWORKS;
 }

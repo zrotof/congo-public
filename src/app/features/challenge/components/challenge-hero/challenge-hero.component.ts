@@ -1,6 +1,5 @@
-import { DecimalPipe, NgOptimizedImage } from '@angular/common';
-import { Component, inject, input, signal, SimpleChanges } from '@angular/core';
-import { ChallengeService } from '../../../../core/services/challenge.service';
+import { NgOptimizedImage } from '@angular/common';
+import { Component, input, signal, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-challenge-hero',
@@ -8,7 +7,6 @@ import { ChallengeService } from '../../../../core/services/challenge.service';
   styleUrl: './challenge-hero.component.scss',
   imports: [
     NgOptimizedImage,
-    DecimalPipe
   ]
 })
 
@@ -16,7 +14,6 @@ export class ChallengeHeroComponent {
   imageUrl = input.required<string>();
   isRevealed = input.required<boolean>();
   count = input.required<number>();
-
   displayCount = signal<number>(0);
 
   ngOnChanges(changes: SimpleChanges) {

@@ -1,0 +1,236 @@
+.biography-bloc {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 5rem;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 10rem;
+        width: 100%;
+
+        .biography-element {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 5rem;
+            position: static;
+            width: 100%;
+            padding: 3rem 3rem 1rem;
+            border-radius: 10px;
+            background-color: var(--project-yellow-secondary-color);
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+            height: calc(100svh - 8rem);
+            z-index: 2;
+            top: 7rem;
+            will-change: transform;
+
+            &::after {
+                position: absolute;
+                border-radius: 10px;
+                content: "";
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                background: rgba(0, 0, 0, 0.7);
+                opacity: var(--after-opacity, 0);
+                transition: opacity 0.1s ease-in-out;
+                z-index: 2;
+            }
+
+            .top {
+                display: flex;
+                gap: 5rem;
+
+                .number-title {
+                    display: flex;
+                    flex-direction: column;
+                    width: 290px;
+                    flex-shrink: 0;
+                    gap: 1rem;
+
+                    span {
+                        font-size: 3rem;
+                        line-height: 1;
+                        font-weight: 900;
+                        color: var(--project-blue-primary-color);
+                    }
+
+                    h3 {
+                        padding-left: 1rem;
+                        border-left: 4px solid var(--project-red-primary-color);
+                        color: var(--project-blue-primary-color);
+                        font-size: 1.5rem;
+                        line-height: 1;
+                        letter-spacing: -1px;
+                        font-weight: 400;
+                    }
+                }
+
+                .image-texts {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2rem;
+                    flex: 1;
+
+                    .image-wrapper {
+                        position: relative;
+                        height: 20rem;
+                        border-radius: 5px;
+                        overflow: hidden;
+
+                        img {
+                            transform: scale(1.2);
+                            object-fit: cover;
+                            object-position: top center;
+                        }
+                    }
+
+                    .texts {
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        gap: 1rem;
+
+                        p {
+                            line-height: 1.5;
+                            font-size: 1rem;
+                            color: var(--project-black-secondary-color);
+                        }
+                    }
+                }
+            }
+
+            .image-wrapper {
+                position: relative;
+                height: 15rem;
+                width: 96%;
+                margin: 0 auto;
+                border-radius: 0.5rem;
+                overflow: hidden;
+                box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: top;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .biography-bloc {
+        .content {
+            .biography-element {
+                gap: 3rem;
+                padding: 2rem 1.5rem 1rem;
+
+                .number-title {
+                    display: flex;
+                    flex-direction: column;
+                    width: 235px;
+                    gap: 1rem;
+
+                    span {
+                        font-size: 2.5rem;
+                    }
+
+                    h3 {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 965px) {
+    .biography-bloc {
+        .content {
+            .biography-element {
+                gap: 3rem;
+
+                .top {
+                    flex-direction: column;
+                    gap: 1.5rem;
+
+                    .number-title {
+                        flex-direction: row;
+                        align-items: center;
+                        width: 100%;
+                    }
+
+                    .image-texts {
+
+                    .texts {
+                        gap: 0.5rem;
+
+                        p {
+                            line-height: 1.5;
+                            font-size: 0.95rem;
+                        }
+                    }
+                }
+                }
+
+                .image-wrapper {
+                    height: 12rem;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 638px) {
+    .biography-bloc {
+        .content {
+            gap: 5rem;
+
+            .biography-element {
+                padding: 1rem;
+                gap: 1.5rem;
+
+                .top{
+                    .number-title {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        width: 100%;
+                        gap: 1rem;
+    
+                        span {
+                            font-size: 1.8rem;
+                        }
+    
+                        h3 {
+                            font-size: 1.1rem;
+                        }
+                    }
+
+                }
+
+
+   
+            }
+        }
+    }
+}
+
+@media all and (max-width: 505px) {
+    .biography-bloc {
+        .content {
+            .biography-element {                
+                p-carousel{
+                    display: none;
+                }
+            }
+        }
+    }
+}

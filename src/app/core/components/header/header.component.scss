@@ -69,10 +69,9 @@ header {
                         padding: 1rem 0;
                         color: var(--project-white-primary-color);
                         transition: all 0.3s ease-in-out;
-                        font-size: 0.95em;
+                        font-size: 1em;
                         position: relative;
                         overflow: hidden;
-                        font-family: 'Montserrat';
                         cursor: pointer;
 
                         &::before {

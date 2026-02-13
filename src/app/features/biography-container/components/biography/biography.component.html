@@ -1,0 +1,30 @@
+<div class="biography-bloc">
+    <div class="content my-container" #animatedCards>
+        @for (biography of biographyBlocs; track $index) {
+        <div class="biography-element">
+            <div class="top">
+                <div class="number-title">
+                    <span> {{biography.period}} </span>
+                    <h3> {{biography.title}} </h3>
+                </div>
+
+                <div class="image-texts">
+                    <div class="texts">
+                        @for (event of biography.events; track $index) {
+                        <p>{{event}} </p>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <p-carousel [circular]="true" [value]="biography.images" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+                <ng-template let-image #item>
+                            <div class="image-wrapper">
+                                <img [ngSrc]="image" [alt]="image" fill />
+                            </div>
+                </ng-template>
+            </p-carousel>
+        </div>
+        }
+    </div>
+</div>

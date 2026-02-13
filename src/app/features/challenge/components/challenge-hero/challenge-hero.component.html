@@ -1,5 +1,7 @@
 <div class="challenge-hero">
+    @if (imageUrl()) {
     <img [ngSrc]="imageUrl()" fill priority>
+    }
 
     <div class="content header-container">
 
@@ -10,9 +12,12 @@
                 de la paix et du développement.
             </p>
         </div>
+
+        @if (isRevealed() === false) {
         <div class="visitors-counter">
             <span class="counter">{{ displayCount() }}</span>
             <p>Citoyens Congolais mobilisés</p>
         </div>
+        }
     </div>
 </div>

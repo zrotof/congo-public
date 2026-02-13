@@ -1,0 +1,24 @@
+<div class="biography-introduction">
+    <div class="content my-container">
+        <div class="header-networks">
+            <h3>Un Destin Lié Au Congo</h3>
+
+            <ul class="networks">
+                @for (network of networks; track $index) {
+                <li [attr.data-aos-delay]="200*$index" data-aos="fade-left" data-aos-duration="600">
+                    <a href={{network.link}} target="_blank" [attr.aria-label]="network.name">
+                        <i [class]="network.icon"></i>
+                    </a>
+                </li>
+                }
+            </ul>
+        </div>
+        <P>
+            Parcourir la vie du Président Denis Sassou-Nguesso, c’est feuilleter les pages de l’histoire moderne de la
+            République du Congo. De ses racines à Edou jusqu’à la construction de la Nouvelle République, chaque étape
+            de ce parcours témoigne d’un engagement indéfectible pour la paix, l’unité nationale et le rayonnement de
+            l’Afrique. Découvrez les moments clés d’un destin consacré au service de la nation et à la stabilité du
+            continent.
+        </P>
+    </div>
+</div>
