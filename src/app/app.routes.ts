@@ -10,7 +10,7 @@ export const routes: Routes = [
         loadComponent: () => import('./features/biography-container/biography-container.component')
     },
     {
-        path: "grand-dossiers",
+        path: "grands-dossiers",
         loadComponent: () => import('./features/big-files-container/big-files-container.component')
     },
     {
