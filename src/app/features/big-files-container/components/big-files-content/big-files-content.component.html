@@ -1,0 +1,29 @@
+<div class="big-files-content">
+    <div class="content my-container">
+        <h2> {{data().title}} </h2>
+        <div class="descriptions">
+            @for (text of data().descriptions; track $index) {
+            <p> {{text}} </p>
+            }
+        </div>
+
+        <div class="datas">
+            @for (detail of data().details; track $index) {
+            <div class="data">
+                <div class="image-wrapper">
+                    <img ngSrc="../../../../../../images/denis.jpeg" alt="" fill>
+                </div>
+                <div class="texts">
+                    <h3> {{detail.header}} </h3>
+    
+                    <div class="points">
+                        @for (point of detail.points; track $index) {
+                        <p> {{point}} </p>
+                        }
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>

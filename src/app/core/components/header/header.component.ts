@@ -6,6 +6,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { MenuItem, MessageService } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
 import { DialogModule } from 'primeng/dialog';
+import { NavSmallScreenComponent } from '../nav-small-screen/nav-small-screen.component';
 
 
 @Component({
@@ -15,11 +16,13 @@ import { DialogModule } from 'primeng/dialog';
     encapsulation: ViewEncapsulation.None,
     providers: [MessageService],
     imports: [
-        NgOptimizedImage,
-        MenuModule,
-        DialogModule,
-        RouterLink,
-    ]
+    NgOptimizedImage,
+    MenuModule,
+    DialogModule,
+    RouterLink,
+    RouterLinkActive,
+    NavSmallScreenComponent
+]
 })
 
 export class HeaderComponent implements OnInit{

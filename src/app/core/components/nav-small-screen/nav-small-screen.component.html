@@ -1,0 +1,26 @@
+<div class="navigation-small-screen">
+
+    <ul class="links">
+        <li>
+            <a (click)="onNavigationClicked()" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}"
+                routerLink="/">
+                <span>Accueil</span>
+            </a>
+        </li>
+        <li>
+            <a (click)="onNavigationClicked()" routerLinkActive="active-link" routerLink="/biographie">
+                <span>Biographie</span>
+            </a>
+        </li>
+        <li>
+            <a (click)="onNavigationClicked()" routerLinkActive="active-link" routerLink="/grands-dossiers">
+                <span>Grands Dossiers</span>
+            </a>
+        </li>
+        <li>
+            <a (click)="onNavigationClicked()">
+                <span>Télécharger Le Projet De Société</span>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -9,27 +9,46 @@
       </p>
     </div>
 
-<!--
     <nav>
       <ul>
         <li>
-          <a>Biographie</a>
+          <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Accueil</a>
+        </li>
+        <li >
+          <a routerLink="/biographie" routerLinkActive="active-link">Biographie</a>
         </li>
         <li>
-          <a>Biographie</a>
+          <a routerLink="/grands-dossiers" routerLinkActive="active-link">Grands Dossiers</a>
+        </li>
+        <li>
+          <button>Projet de société</button>
         </li>
       </ul>
     </nav>
-
+    
     <div
       class="burger"
-      [ngClass]="displayMenu === true ? 'show-cross' : ''"
+      [class]="displayMenu === true ? 'show-cross' : ''"
       (click)="onBurgerMenu()"
     >
       <span></span>
       <span></span>
       <span></span>
     </div>
--->
   </div>
+
+    <p-dialog
+    [(visible)]="displayMenu"
+    position="right"
+    [draggable]="false"
+    [blockScroll]="true"
+    header="MATOMBA 2025"
+    styleClass="nav-small-screen"
+    maskStyleClass="mask-nav-small-screen"
+  >
+    <app-nav-small-screen
+      (onNavigationOnSmallScreenEvent)="menuForSmallScreenHandler($event)"
+    >
+    </app-nav-small-screen>
+  </p-dialog>
 </header>
