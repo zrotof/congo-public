@@ -22,26 +22,19 @@ header {
             align-items: center;
             gap: 1rem;
 
-            .logo {
-                border-radius: 50%;
+            img {
                 object-position: center;
                 transition: all 0.2s ease-in-out;
                 cursor: pointer;
                 object-fit: cover;
             }
 
-            p {
-                color: var(--project-white-primary-color);
-                font-weight: 900;
-                font-size: 1.2rem;
+            .black-logo {
+                display: none;
             }
-
         }
 
 
-        .blue-logo {
-            display: none;
-        }
 
         nav {
             display: flex;
@@ -61,7 +54,7 @@ header {
                     display: flex;
                     align-items: center;
 
-                    &:last-child{
+                    &:last-child {
                         margin-left: 5rem;
                     }
 
@@ -119,7 +112,7 @@ header {
                         color: var(--project-white-primary-color);
                         cursor: pointer;
 
-                        &:hover{
+                        &:hover {
                             background-color: var(--project-white-primary-color);
                             color: var(--project-black-primary-color);
                         }
@@ -214,7 +207,7 @@ header {
 .navbar-background-on-scroll {
     background-color: var(--project-white-primary-color);
     box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
-    height: 6rem;
+    height: 5rem;
     transition: all 0.5s ease-in-out;
 
     .content {
@@ -224,20 +217,13 @@ header {
             align-items: center;
             gap: 1rem;
 
-            .logo {
-                border-radius: 50%;
-                object-position: center;
-                transition: all 0.2s ease-in-out;
-                cursor: pointer;
-                object-fit: cover;
+            .white-logo {
+                display: none;
             }
 
-            p {
-                background: linear-gradient(135deg, #002b5c 30%, #5a2121 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
+            .black-logo {
+                display: block;
             }
-
         }
 
         nav {
@@ -305,27 +291,9 @@ header {
     }
 }
 
-@media all and (max-width: 1244px) {
-    header {
-        .content {
-            nav {
-                .get-involved {
-                    margin-left: 40px;
-                }
-            }
-        }
-    }
-}
-
 @media all and (max-width: 1125px) {
     header {
         .content {
-
-            .logo {
-                font-size: 1.7rem;
-                letter-spacing: -2px;
-            }
-
             nav {
                 ul {
                     gap: 1.5rem;
@@ -336,10 +304,6 @@ header {
                         }
                     }
                 }
-
-                .get-involved {
-                    margin-left: 26px;
-                }
             }
         }
     }
@@ -347,9 +311,17 @@ header {
 
 @media all and (max-width: 990px) {
     header {
-        height: 6rem;
+        height: 5rem;
 
         .content {
+
+            .left {
+                img {
+                    width: 135px;
+                    height: 30px;
+                }
+            }
+
             nav {
                 display: none;
             }
@@ -386,16 +358,6 @@ header {
                 span:nth-last-child(3) {
                     transform: rotate(45deg) translate(2px, -4px);
                 }
-            }
-        }
-    }
-}
-
-@media all and (max-width: 375px) {
-    header {
-        .content {
-            .logo {
-                font-size: 1.5rem;
             }
         }
     }
