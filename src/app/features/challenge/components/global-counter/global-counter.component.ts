@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges, computed, signal } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-global-counter',
@@ -8,8 +9,9 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
   styleUrls: ['./global-counter.component.scss'],
   imports: [
     CommonModule,
-    NgOptimizedImage
-  ]
+    NgOptimizedImage,
+    RouterLink
+]
 })
 
 export class GlobalCounterComponent implements OnChanges {

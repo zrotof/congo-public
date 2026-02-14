@@ -6,14 +6,14 @@ export const ENVIRONMENT_DATA = {
   details: [
     {
       header: 'Fonds Bleu pour le Bassin du Congo',
-      image: '',
+      image: '../../../../../../images/work/blue.jpg',
       points: [
         'L’initiative du Fonds Bleu pour le Bassin du Congo a été portée lors de la COP 22 à Marrakech au Maroc. Elle répond aux enjeux climatiques à l’échelle continentale et planétaire. C’est un instrument financier pour le développement de projets africains basés sur les principes de l’économie verte et bleue au niveau des pays engagés dans sa mise œuvre. L’ambition du fonds bleu est de redéfinir les bases d’une économie collaborative qui associe l’exploitation raisonnée des forêts et la gestion durable des eaux des côtes maritimes, du fleuve Congo et de ses affluents. Au total, seize pays de la Commission climat du bassin du Congo et le Maroc sont engagés à mettre en œuvre ce projet bénéfique pour l’ensemble de la planète. La réussite du Fonds bleu pour le Bassin du Congo et une préoccupation pour les dirigeants de ces pays et pour moi-même.'
       ]
     },
     {
       header: 'Le Sommet des Trois Bassins',
-      image: '',
+      image: '../../../../../../images/work/three-congo.jpg',
       points: [
         'Président de la Commission climat du bassin du Congo, j’ai pensé que les responsables des trois plus grands bassins forestiers de la planète qui contribuent à la régulation du climat devaient se retrouver pour faire le point sur la mise en œuvre des conclusions du premier sommet qui avait eu lieu à Brazzaville, en 2011 et faire des projections sur l’avenir, en s’appuyant sur les préoccupations actuelles au moment où la protection et la gestion durable des forêts tropicales est devenue plus qu’une nécessité.',
         'Il s’agira, par exemple, de penser au mécanisme de développement d’une coopération scientifique sur les écosystèmes forestiers, notamment afin d’accroître l’expertise internationale sur les liens entre santé et biodiversité.',

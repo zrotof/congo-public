@@ -7,7 +7,7 @@ export const BIOGRAPHY_DATA = [
       "En 1956, après avoir fréquenté l’école primaire de mon village et celle de Fort-Rousset (Owando), je suis admis au concours d’entrée au collège normal Raymond Paillet de Dolisie. Très tôt, je m’intéresse à la vie politique et acquiers une conscience idéologique progressiste au sein de l’association scolaire du Congo (ASCO)."
     ],
     images: [
-      "../../../../../../images/biography/rdc_map.png",
+      "../../../../../../images/biography/origins/congo-map.jpg",
       "../../../../../../images/denis.jpeg",
       "../../../../../../images/jeune-congolais.png",
       "../../../../../../images/parti-congolais-du-travail.png",
@@ -22,10 +22,11 @@ export const BIOGRAPHY_DATA = [
       "En 1968, promu Capitaine, je participe au mouvement du 31 juillet avec Marien Ngouabi, aboutissant à la création du Parti Congolais du Travail (PCT) dont je suis membre fondateur."
     ],
     images: [
-      "../../../../../../images/biography/rdc_map.png",
-      "../../../../../../images/denis.jpeg",
-      "../../../../../../images/jeune-congolais.png",
+      "../../../../../../images/biography/arms/sassou.avif",
       "../../../../../../images/parti-congolais-du-travail.png",
+      "../../../../../../images/biography/arms/sassou-pct.jpg",
+      "../../../../../../images/biography/arms/pct.jpg",
+      "../../../../../../images/biography/arms/pct-sassou.png",
     ]
   },
   {
@@ -37,8 +38,9 @@ export const BIOGRAPHY_DATA = [
       "Le 5 février 1979, je suis élu Président du Comité Central du PCT. Le Congrès de mars 1979 confirme mon élection à la tête du Parti et de l’État."
     ],
     images: [
-      "assets/images/bio/pct-fondation.jpg",
-      "assets/images/bio/investiture-1979.jpg"
+      "../../../../../../images/biography/responsabilities/young-sassou.jpeg",
+      "../../../../../../images/biography/responsabilities/sassou-young.jpg",
+      "../../../../../../images/biography/responsabilities/sassou.webp",
     ]
   },
   {
@@ -50,8 +52,9 @@ export const BIOGRAPHY_DATA = [
       "En 1990 et 1991, j'ouvre le pays au multipartisme et accepte la tenue de la conférence nationale souveraine, me retirant du pouvoir en 1992 pour favoriser l’alternance."
     ],
     images: [
-      "assets/images/bio/mandela-brazzaville.jpg",
-      "assets/images/bio/conference-nationale.jpg"
+      "../../../../../../images/biography/shine/oua.jpg",
+      "../../../../../../images/biography/shine/sassou-mandela.jpg",
+      "../../../../../../images/biography/shine/alternance.webp",
     ]
   },
   {
@@ -63,8 +66,9 @@ export const BIOGRAPHY_DATA = [
       "En 2003 et 2006, je porte le « Pacte de non-Agression » de l’Union Africaine et assume pour la deuxième fois la présidence en exercice de l’UA."
     ],
     images: [
-      "assets/images/bio/reconciliation-nationale.jpg",
-      "assets/images/bio/union-africaine-sommet.jpg"
+      "../../../../../../images/biography/back/referendum.avif",
+      "../../../../../../images/biography/back/dialog.jpg",
+      "../../../../../../images/biography/back/sassou.webp",
     ]
   },
   {
@@ -75,8 +79,9 @@ export const BIOGRAPHY_DATA = [
       "De 2010 à 2013, j'assume la présidence de la CEMAC, je porte la voix de l'Afrique au Sommet de Rio+20, et je suis désigné Médiateur pour la crise en République Centrafricaine."
     ],
     images: [
-      "assets/images/bio/rio-20-discours.jpg",
-      "assets/images/bio/cemac-bangui.jpg"
+      "../../../../../../images/biography/arise/rio.jpg",
+      "../../../../../../images/biography/arise/rca-congo.jpg",
+      "../../../../../../images/biography/arise/cemac.jpg",
     ]
   },
   {
@@ -88,8 +93,9 @@ export const BIOGRAPHY_DATA = [
       "En mars 2021, je suis réélu pour un nouveau mandat de 5 ans avec pour missions clés la préservation du fleuve Congo et la redynamisation de l’économie post-pandémie."
     ],
     images: [
-      "assets/images/bio/constitution-2015.jpg",
-      "assets/images/bio/bassin-du-congo.jpg"
+      "../../../../../../images/biography/sixth/corona.jpg",
+      "../../../../../../images/biography/sixth/cabrale.jpg",
+      "../../../../../../images/biography/sixth/new.jpeg",
     ]
   }
 ];

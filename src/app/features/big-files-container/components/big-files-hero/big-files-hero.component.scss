@@ -1,6 +1,6 @@
 .big-files-hero {
     position: relative;
-    height: 35rem;
+    height: 41rem;
 
      &::after {
         position: absolute;
@@ -12,7 +12,7 @@
 
     img {
         object-fit: cover;
-        object-position: center 50%;
+        object-position: top;
     }
 }
 

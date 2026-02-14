@@ -1,26 +1,32 @@
 export const NETWORKS = [
     {
         sourceImg: "../../../assets/img/social-medias/facebook.png",
-        link: "https://www.facebook.com/SergeEspoirMatomba",
+        link: "",
         name: "Facebook",
         icon: "pi pi-facebook"
     },
     {
         sourceImg: "../../../assets/img/social-medias/instagram.png",
-        link: "https://www.instagram.com/sergeespoirmatomba/",
+        link: "",
         name: "Instagram",
         icon: "pi pi-instagram"
     },
     {
         sourceImg: "../../../assets/img/social-medias/twitter.png",
-        link: "https://x.com/s_espoirmatomba?s=21",
+        link: "",
         name: "Twitter",
         icon: "pi pi-twitter"
     },
     {
         sourceImg: "../../../assets/img/social-medias/youtube.png",
-        link: "https://www.youtube.com/@SeMatomba",
+        link: "",
         name: "Youtube",
         icon: "pi pi-youtube"
+    },
+    {
+        sourceImg: "../../../assets/img/social-medias/youtube.png",
+        link: "https://wa.me/?text=Découvrez%20le%20site%20officiel%20de%20la%20candidature%20du%20Président%20Sassou%20Nguesso%20:%20https://www.sassou.sm-digitalizer.fr/",
+        name: "Whatsapp",
+        icon: "pi pi-whatsapp"
     }
 ]
