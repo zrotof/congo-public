@@ -48,7 +48,6 @@ export default class ChallengeComponent implements OnInit {
   filtersLoading = this.filterService.isLoading;
 
   ngOnInit(): void {
-    this.challengeService.loadChallenge();
     this.filterService.loadFilters();
   }
 

@@ -188,6 +188,18 @@ header {
                                 line-height: unset;
                             }
                         }
+
+                        button {
+                            border: 2px solid var(--project-black-primary-color);
+                            background-color: transparent;
+                            color: var(--project-black-primary-color);
+                            cursor: pointer;
+
+                            &:hover {
+                                background-color: var(--project-black-primary-color);
+                                color: var(--project-white-primary-color);
+                            }
+                        }
                     }
                 }
 
@@ -230,17 +242,29 @@ header {
             ul {
                 li {
                     a {
-                        color: var(--project-blue-primary-color);
+                        color: var(--project-black-primary-color);
                         font-weight: 500;
 
                         &::before {
-                            background: var(--project-blue-primary-color);
+                            background: var(--project-black-primary-color);
                         }
                     }
 
                     .active-link {
                         &::before {
                             left: 0;
+                        }
+                    }
+
+                    button {
+                        border: 2px solid var(--project-black-primary-color);
+                        background-color: transparent;
+                        color: var(--project-black-primary-color);
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: var(--project-black-primary-color);
+                            color: var(--project-white-primary-color);
                         }
                     }
                 }

@@ -1,0 +1,72 @@
+<!-- Bouton Flottant -->
+<button class="chat-trigger" (click)="toggleChat()" [class.hidden]="isOpen">
+  <i class="pi pi-comments" style="font-size: 1.5rem;"></i>
+  <!-- Badge notification (optionnel) -->
+  <span class="notification-dot"></span>
+</button>
+
+<!-- Fenêtre du Chat -->
+<div class="chat-window" [class.open]="isOpen">
+  
+  <!-- Header -->
+  <div class="chat-header">
+    <div class="header-info">
+      <div class="avatar">
+        <!-- Mets une vraie image ici -->
+        <img src="images/chatbot/congo.webp" alt="Bot"> 
+      </div>
+      <div class="text-info">
+        <h3>Assistant Campagne</h3>
+        <span class="status">
+          <span class="dot"></span> En ligne
+        </span>
+      </div>
+    </div>
+    <button class="close-btn" (click)="toggleChat()">
+      <i class="pi pi-times"></i>
+    </button>
+  </div>
+
+  <!-- Corps des messages -->
+  <div class="chat-body" #scrollContainer>
+    
+    <div *ngFor="let msg of chatbotService.messages()" 
+         class="message-wrapper" 
+         [class.user]="msg.isUser"
+         [class.bot]="!msg.isUser">
+      
+
+      <div class="message-bubble">
+        
+        <!-- Cas normal : Texte -->
+        <div *ngIf="!msg.isLoading" [innerHTML]="msg.text"></div>
+
+        <!-- Cas chargement : Dots animation -->
+        <div *ngIf="msg.isLoading" class="typing-indicator">
+          <span></span><span></span><span></span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Input -->
+  <div class="chat-footer">
+    <div class="input-wrapper">
+      <input 
+        type="text" 
+        placeholder="Posez votre question..." 
+        [(ngModel)]="userInput"
+        (keyup.enter)="sendMessage()">
+      
+      <button (click)="sendMessage()" [disabled]="!userInput.trim()">
+        <i class="pi pi-send"></i>
+      </button>
+    </div>
+    <div class="footer-note">
+      Réponses basées sur le projet officiel <a href="" target="_blank">à télécharger ici</a>
+    </div>
+  </div>
+
+</div>

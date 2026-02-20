@@ -8,6 +8,7 @@ import { ToastModule } from 'primeng/toast';
 import { RouterOutlet } from '@angular/router';
 import { FilterService } from './core/services/filter.service';
 import { GlobalStatsService } from './core/services/global-stats.service';
+import { ChatbotComponent } from './features/chatbot/chatbot.component';
 
 @Component({
   selector: 'app-root',
@@ -19,12 +20,13 @@ import { GlobalStatsService } from './core/services/global-stats.service';
     RouterOutlet,
     FooterComponent,
     LaunchAdviceComponent,
+    ChatbotComponent
   ]
 })
 
 export class AppComponent {
   private challengeService = inject(ChallengeService);
-  private snapFilterService = inject(FilterService);
+  private filterService = inject(FilterService);
   private globalStatsService = inject(GlobalStatsService);
 
   displayWelcome: boolean = false;
@@ -47,9 +49,10 @@ export class AppComponent {
         // Si déjà visité, on montre la page immédiatement
         this.displayPage = true;
       }
-    }
 
-    this.globalStatsService.init();
+      this.challengeService.loadChallenge();
+      this.globalStatsService.init();
+    }
   }
 
   onAcceptEventTriggerHandler(event: boolean) {
@@ -64,7 +67,7 @@ export class AppComponent {
     this.challengeService.leaveChallenge();
     this.challengeService.cleanup();
 
-    this.snapFilterService.leaveFilters();
-    this.snapFilterService.cleanup();
+    this.filterService.leaveFilters();
+    this.filterService.cleanup();
   }
 }
