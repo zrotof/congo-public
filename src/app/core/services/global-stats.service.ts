@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
 export class GlobalStatsService implements OnDestroy {
   private http = inject(HttpClient);
   private socketService = inject(SocketService);
-  private ngZone = inject(NgZone); // ✅ Pour forcer la mise à jour UI
+  private ngZone = inject(NgZone);
   private readonly API_URL = `${environment.apiUrl}/stats`;
 
   totalVisits = signal<number>(0);
@@ -18,23 +18,28 @@ export class GlobalStatsService implements OnDestroy {
   private hasJoined = false;
 
   init(): void {
-    this.fetchInitialStats();
+    // 1. Enregistrer la visite via HTTP (POST)
+    // Cela nous garantit de recevoir la valeur incrémentée
+    this.registerVisit();
+    
+    // 2. Connecter le socket pour recevoir les mises à jour des AUTRES
     this.initSocketListeners();
   }
 
-  private fetchInitialStats(): void {
+  private registerVisit(): void {
     this.isLoading.set(true);
-    this.http.get<{ status: string, data: { totalVisits: number } }>(this.API_URL)
+    // Appel POST qui déclenche l'incrément côté serveur
+    this.http.post<{ status: string, data: { totalVisits: number } }>(`${this.API_URL}/visit`, {})
       .subscribe({
         next: (res) => {
-          // On met à jour avec l'API, mais on sait que le socket aura le dernier mot
-          if (this.totalVisits() === 0) {
+          console.log('✅ Visite validée. Total:', res.data.totalVisits);
+          this.ngZone.run(() => {
             this.totalVisits.set(res.data.totalVisits);
-          }
+          });
           this.isLoading.set(false);
         },
         error: (err) => {
-          console.error('❌ Erreur stats:', err);
+          console.error('❌ Erreur API Visit:', err);
           this.isLoading.set(false);
         }
       });
@@ -43,41 +48,26 @@ export class GlobalStatsService implements OnDestroy {
   private initSocketListeners(): void {
     this.socketService.connect();
 
-    // Attendre la connexion avant de rejoindre
+    // Rejoindre la room (pour écoute passive)
     const checkInterval = setInterval(() => {
       if (this.socketService.isConnected()) {
         clearInterval(checkInterval);
-        this.joinGlobalRoom();
+        if (!this.hasJoined) {
+          this.socketService.emit('JOIN_GLOBAL');
+          this.hasJoined = true;
+        }
       }
     }, 100);
 
     setTimeout(() => clearInterval(checkInterval), 5000);
 
-    // Écoute des mises à jour des AUTRES visiteurs
+    // Écouter les mises à jour (Broadcast)
     this.socketService.on<{ totalVisits: number }>('GLOBAL_UPDATE', (data) => {
-      console.log('🌍 Socket Broadcast Reçu:', data.totalVisits);
+      // console.log('🌍 Update Temps réel:', data.totalVisits);
       this.ngZone.run(() => {
         this.totalVisits.set(data.totalVisits);
       });
     });
-  }
-
-  private joinGlobalRoom() {
-    if (!this.hasJoined) {
-      console.log('📤 Envoi JOIN_GLOBAL avec demande de réponse...');
-      
-      // ✅ APPEL AVEC CALLBACK
-      this.socketService.emit('JOIN_GLOBAL', null, (response: { totalVisits: number }) => {
-        console.log('✅ Réponse directe du serveur (Callback):', response);
-        
-        // Mise à jour immédiate et forcée
-        this.ngZone.run(() => {
-          this.totalVisits.set(response.totalVisits);
-        });
-      });
-
-      this.hasJoined = true;
-    }
   }
 
   ngOnDestroy(): void {
