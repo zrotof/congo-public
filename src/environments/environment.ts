@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api-congo.sm-digitalizer.fr/api',
-  socketUrl: 'https://api-congo.sm-digitalizer.fr'
+  apiUrl: 'https://api.dsn-2026.com/api',
+  socketUrl: 'https://api.dsn-2026.com'
 };
