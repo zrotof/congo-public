@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, inject, computed } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, OnDestroy, inject, computed, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ChallengeService } from '../../core/services/challenge.service';
 import { ChallengeHeroComponent } from './components/challenge-hero/challenge-hero.component';
 import { SnapFilter } from '../../core/models/snapfilter.model';
@@ -8,7 +8,10 @@ import { GlobalCounterComponent } from './components/global-counter/global-count
 import { GlobalStatsService } from '../../core/services/global-stats.service';
 import { FilterService } from '../../core/services/filter.service';
 
-import { SnapFilterSectionComponent } from './components/snapfilter-section/snapfilter-section.component';
+import { FilterSectionComponent } from './components/filter-section/filter-section.component';
+import { ChallengeHeroSkeletonComponent } from './components/challenge-hero-skeleton/challenge-hero-skeleton.component';
+import { GlobalCounterSkeletonComponent } from './components/global-counter-skeleton/global-counter-skeleton.component';
+import { FilterSectionSkeletonComponent } from './components/filter-section-skeleton/filter-section-skeleton.component';
 
 @Component({
   selector: 'app-challenge',
@@ -16,9 +19,12 @@ import { SnapFilterSectionComponent } from './components/snapfilter-section/snap
   imports: [
     CommonModule,
     ChallengeHeroComponent,
+    ChallengeHeroSkeletonComponent,
     GlobalCounterComponent,
+    GlobalCounterSkeletonComponent,
     AboutCandidateComponent,
-    SnapFilterSectionComponent
+    FilterSectionComponent,
+    FilterSectionSkeletonComponent
   ],
   templateUrl: './challenge.component.html',
   styleUrls: ['./challenge.component.scss']
@@ -29,6 +35,7 @@ export default class ChallengeComponent implements OnInit {
   private filterService = inject(FilterService);
   private globalStatsService = inject(GlobalStatsService);
 
+  private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   challenge = this.challengeService.challenge;
   imageUrl = this.challengeService.imageUrl;
@@ -48,7 +55,9 @@ export default class ChallengeComponent implements OnInit {
   filtersLoading = this.filterService.isLoading;
 
   ngOnInit(): void {
-    this.filterService.loadFilters();
+    if(this.isBrowser){
+      this.filterService.loadFilters();
+    }
   }
 
   onFilterClick(filter: SnapFilter): void {

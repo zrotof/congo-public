@@ -1,0 +1,158 @@
+// Variables
+$soft-bg: #F9FAFB;
+
+// Animation Shimmer
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.counter-section.skeleton-mode {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 55rem;
+    background-color: $soft-bg;
+    overflow: hidden;
+
+    // Fausse image de fond
+    .skeleton-bg-image {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+        opacity: 0.5; // Pour ne pas être trop sombre
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6rem;
+        width: 100%;
+        padding-top: 6rem;
+        position: relative;
+        z-index: 2;
+
+        // TITRE SQUELETTE
+        .sk-line.title {
+            width: 60%;
+            height: 3rem;
+            background: rgba(0, 43, 92, 0.2); // Couleur proche de ton texte
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            background: rgba(255, 255, 255, 0.765);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 2rem 4rem;
+            max-width: 600px;
+            width: 100%;
+
+            // CARTES SQUELETTE
+            .counter-container {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+
+                .counter-card.sk-card {
+                    background: #002b5c; // Même fond que le vrai
+                    border-radius: 12px;
+                    width: 130px;
+                    height: 120px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    
+                    // Bordures colorées (Important pour l'effet visuel)
+                    border-top: 8px solid transparent;
+                    &:nth-child(1) { border-top-color: #009543; } // Vert
+                    &:nth-child(2) { border-top-color: #FBDE4A; } // Jaune
+                    &:nth-child(3) { border-top-color: #DC241F; } // Rouge
+
+                    .sk-line.number {
+                        width: 80%;
+                        height: 3rem;
+                        background: rgba(255, 255, 255, 0.2);
+                        border-radius: 4px;
+                    }
+                }
+            }
+
+            // BOUTON SQUELETTE
+            .sk-line.button {
+                width: 200px;
+                height: 3rem;
+                border-radius: 50px;
+                border: 2px solid rgba(220, 36, 31, 0.3); // Rouge transparent
+                background: transparent;
+            }
+        }
+    }
+}
+
+// --- RESPONSIVE (Copie exacte de ton CSS) ---
+
+@media (max-width: 1024px) {
+    .counter-section.skeleton-mode {
+        height: 40rem;
+
+        .content {
+            gap: 6rem;
+            padding-top: 4rem;
+
+            .sk-line.title { height: 2.5rem; width: 70%; }
+
+            .content-wrapper {
+                gap: 3rem;
+                padding: 2rem;
+                max-width: 400px;
+
+                .counter-container .counter-card.sk-card {
+                    width: 100px;
+                    height: 100px;
+                    border-top-width: 6px;
+                    
+                    .sk-line.number { height: 2rem; }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .counter-section.skeleton-mode {
+        height: 32rem;
+
+        .content {
+            gap: 4rem;
+
+            .content-wrapper {
+                gap: 2rem;
+                padding: 1.5rem 1rem;
+                max-width: 280px;
+
+                .counter-container {
+                    gap: 0.5rem;
+                    
+                    .counter-card.sk-card {
+                        width: 70px;
+                        height: 65px;
+                        border-top-width: 5px;
+                        
+                        .sk-line.number { height: 1.5rem; }
+                    }
+                }
+            }
+        }
+    }
+}

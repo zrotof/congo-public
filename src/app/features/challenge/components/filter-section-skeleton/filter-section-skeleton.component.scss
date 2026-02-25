@@ -1,0 +1,189 @@
+// Variables (Réutilisation)
+$bg-color: #002b5c;
+
+// Animation Shimmer
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.filters-section.skeleton-mode {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background-color: $bg-color;
+  padding: 5rem 0;
+  width: 100%;
+
+  .content {
+    width: 100%;
+    // On force la largeur max comme dans ton CSS global
+    // Si tu as un .my-container global, assure-toi qu'il est appliqué
+    max-width: 1300px;
+    padding: 0 1rem;
+
+    // --- HEADER ---
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 2rem;
+
+      .header-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        max-width: 600px;
+      }
+
+      .total-counter.skeleton-box {
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        min-width: 150px;
+      }
+    }
+
+    // --- CONTENT ---
+    .filters-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+
+      .platform-group {
+        .platform-header {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 2rem;
+        }
+
+        .filters-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem;
+
+          .filter-card.sk-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+
+            .image-wrapper.skeleton-img {
+              width: 100%;
+              height: 15rem;
+              position: relative;
+              overflow: hidden;
+              
+              &::after {
+                content: "";
+                position: absolute;
+                top: 0; left: 0; width: 100%; height: 100%;
+                background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
+                background-size: 200% 100%;
+                animation: shimmer 1.5s infinite;
+              }
+            }
+
+            .card-info {
+              padding: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // --- UTILITAIRES SKELETON ---
+  .sk-line {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+      transform: translateX(-100%);
+      animation: shimmer 1.5s infinite;
+    }
+
+    &.badge { height: 1.5rem; border-radius: 50px; }
+    &.h2 { height: 3rem; margin-bottom: 0.5rem; }
+    &.h3 { height: 1.8rem; }
+    &.h4 { height: 1.2rem; margin-bottom: 0.5rem; }
+    &.p { height: 1rem; }
+    &.count { height: 2.5rem; margin-bottom: 0.5rem; }
+    &.label { height: 0.8rem; }
+
+    &.w-20 { width: 20%; }
+    &.w-30 { width: 30%; }
+    &.w-40 { width: 40%; }
+    &.w-60 { width: 60%; }
+    &.w-70 { width: 70%; }
+    &.w-80 { width: 80%; }
+    &.w-100 { width: 100px; }
+    
+    &.mt-1 { margin-top: 0.5rem; }
+  }
+
+  .sk-circle.icon {
+    width: 2rem; height: 2rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+// --- RESPONSIVE (Copie de tes Media Queries) ---
+
+@media (max-width: 1024px) {
+  .filters-section.skeleton-mode {
+    padding: 4rem 0;
+
+    .content {
+      .section-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        text-align: center;
+
+        .header-content {
+          align-items: center;
+          .sk-line.h2 { width: 80%; }
+        }
+
+        .total-counter.skeleton-box {
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .filters-section.skeleton-mode {
+    .content .filters-content .platform-group .filters-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 480px) { // 480px pour mobile strict
+  .filters-section.skeleton-mode {
+    .content .filters-content .platform-group .filters-grid {
+      grid-template-columns: repeat(1, 1fr);
+      
+      .filter-card.sk-card .image-wrapper.skeleton-img {
+        height: 14rem;
+      }
+    }
+  }
+}

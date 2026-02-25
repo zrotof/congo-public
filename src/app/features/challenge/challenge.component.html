@@ -1,16 +1,35 @@
 <div class="public-wrapper">
-  <app-challenge-hero [imageUrl]="imageUrl()" [isRevealed]="isRevealed()" [count]="currentViews()">
-  </app-challenge-hero>
+  <section class="hero-section">
+    @defer (when imageUrl()) {
+      <app-challenge-hero 
+        [imageUrl]="imageUrl()!" 
+        [isRevealed]="isRevealed()" 
+        [count]="currentViews()">
+      </app-challenge-hero>
+    } @placeholder {
+      <app-challenge-hero-skeleton></app-challenge-hero-skeleton>
+    }
+  </section>
+  <section class="stats-section">
+    @defer (when totalVisits() > 0) {
+      <app-global-counter [count]="totalVisits()"></app-global-counter>
+    } @placeholder {
+      <app-global-counter-skeleton></app-global-counter-skeleton>
+    }
+  </section>
 
-  <app-global-counter [count]="totalVisits()">
-  </app-global-counter>
-
-  <app-snapfilter-section
+  @defer (on viewport) {
+    <app-filter-section
       [filters]="filters()"
       [totalUsage]="totalFilterUsage()"
       [isLoading]="filtersLoading()"
-      (filterClick)="onFilterClick($event)"> <!-- Écoute l'event de clic -->
-    </app-snapfilter-section>
+      (filterClick)="onFilterClick($event)">
+    </app-filter-section>
+  } @placeholder {
+    <app-filter-section-skeleton></app-filter-section-skeleton>
+  }
 
-  <app-about-candidate></app-about-candidate>
+  @defer (on idle) {
+    <app-about-candidate></app-about-candidate>
+  } 
 </div>

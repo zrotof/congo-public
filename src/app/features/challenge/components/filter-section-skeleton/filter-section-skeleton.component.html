@@ -1,0 +1,70 @@
+<section class="filters-section skeleton-mode">
+    <div class="content my-container">
+
+        <!-- Header Skeleton -->
+        <div class="section-header">
+            <div class="header-content">
+                <!-- Badge -->
+                <div class="sk-line badge w-20"></div>
+                <!-- H2 -->
+                <div class="sk-line h2 w-60"></div>
+                <!-- P -->
+                <div class="sk-line p w-80"></div>
+            </div>
+
+            <!-- Compteur Total -->
+            <div class="total-counter skeleton-box">
+                <div class="sk-line count w-100"></div>
+                <div class="sk-line label w-80 mt-1"></div>
+            </div>
+        </div>
+
+        <!-- Content Skeleton (Simulation 2 Groupes) -->
+        <div class="filters-content">
+
+            <!-- Groupe 1 (TikTok) -->
+            <div class="platform-group">
+                <div class="platform-header">
+                    <div class="sk-circle icon"></div>
+                    <div class="sk-line h3 w-30"></div>
+                </div>
+
+                <div class="filters-grid">
+                    <!-- 3 Cartes -->
+                     @for (i of [1,2,3]; track $index) {
+                         <div class="filter-card sk-card">
+                             <div class="image-wrapper skeleton-img"></div>
+                             <div class="card-info">
+                                 <div class="sk-line h4 w-70"></div>
+                                 <div class="sk-line p w-40 mt-1"></div>
+                             </div>
+                         </div>
+                     }
+                </div>
+            </div>
+
+            <!-- Groupe 2 (Snapchat) -->
+            <div class="platform-group">
+                <div class="platform-header">
+                    <div class="sk-circle icon"></div>
+                    <div class="sk-line h3 w-30"></div>
+                </div>
+
+                <div class="filters-grid">
+                    <!-- 3 Cartes -->
+                    @for (i of [1,2,3]; track $index) {
+                    <div class="filter-card sk-card">
+                        <div class="image-wrapper skeleton-img"></div>
+                        <div class="card-info">
+                            <div class="sk-line h4 w-70"></div>
+                            <div class="sk-line p w-40 mt-1"></div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>

@@ -1,5 +1,13 @@
 <div class="biography-container">
     <app-biography-hero></app-biography-hero>
     <app-biography-introduction></app-biography-introduction>
-    <app-biography></app-biography>
+    
+    @defer (on viewport) {
+        <app-biography></app-biography>
+    } @placeholder {
+        <div class="skeleton-bio">
+           <!-- Juste un bloc gris de la hauteur approximative d'une carte -->
+           <div style="height: 400px; background: #f9fafb; margin: 2rem auto; max-width: 1300px; border-radius: 16px;"></div>
+        </div>
+    }
 </div>

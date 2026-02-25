@@ -9,6 +9,7 @@ import { RouterOutlet } from '@angular/router';
 import { FilterService } from './core/services/filter.service';
 import { GlobalStatsService } from './core/services/global-stats.service';
 import { ChatbotComponent } from './features/chatbot/chatbot.component';
+import { SocketService } from './core/services/socket.service';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,7 @@ import { ChatbotComponent } from './features/chatbot/chatbot.component';
 })
 
 export class AppComponent {
+  private socketService = inject(SocketService);
   private challengeService = inject(ChallengeService);
   private filterService = inject(FilterService);
   private globalStatsService = inject(GlobalStatsService);
@@ -34,8 +36,11 @@ export class AppComponent {
 
   protected isBrowser = isPlatformBrowser(inject(PLATFORM_ID))
 
-  ngOnInit() {
+  ngOnInit() {    
     if (this.isBrowser) {
+      // 1. D'abord, on lance la connexion Socket UNIQUE
+      this.socketService.connect();
+
       // Utilise la même clé partout
       const hasVisited = localStorage.getItem('already_visited');
 

@@ -1,5 +1,5 @@
-import { NgOptimizedImage } from '@angular/common';
-import { Component, input, signal, SimpleChanges } from '@angular/core';
+import { isPlatformBrowser, NgOptimizedImage } from '@angular/common';
+import { Component, inject, input, PLATFORM_ID, signal, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-challenge-hero',
@@ -16,11 +16,20 @@ export class ChallengeHeroComponent {
   count = input.required<number>();
   displayCount = signal<number>(0);
 
+  private platformId = inject(PLATFORM_ID);
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes['count']) {
-      this.animateCount(changes['count'].currentValue);
+      // ✅ PROTECTION SSG : On ne lance l'animation que sur le navigateur
+      if (isPlatformBrowser(this.platformId)) {
+        this.animateCount(changes['count'].currentValue);
+      } else {
+        // Côté serveur (SSG), on affiche juste la valeur finale sans animation
+        this.displayCount.set(changes['count'].currentValue);
+      }
     }
   }
+
 
   private animateCount(target: number) {
     const start = this.displayCount();

@@ -1,5 +1,16 @@
 <div class="big-files-container">
     <app-big-files-hero></app-big-files-hero>
-    <app-big-files-content [data]="peaceData"></app-big-files-content>
-    <app-big-files-content [data]="environmentData"></app-big-files-content>
-</div>
+@defer (on viewport) {
+        <app-big-files-content [data]="peaceData"></app-big-files-content>
+    } @placeholder {
+        <!-- Squelette minimaliste (Titre + Texte) -->
+        <div class="skeleton-content first"></div>
+    }
+
+    <!-- 3. Deuxième contenu : Loin dans la page -->
+    @defer (on viewport) {
+        <app-big-files-content [data]="environmentData"></app-big-files-content>
+    } @placeholder {
+        <!-- Squelette -->
+        <div class="skeleton-content second"></div>
+    }</div>
