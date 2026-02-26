@@ -41,24 +41,26 @@
              </div>
    
              <div class="filters-grid">
-               <div class="filter-card tiktok" *ngFor="let filter of tiktokFilters; trackBy: trackByFilterId"
-                 (click)="onFilterClick(filter)">
-   
-                 <div class="image-wrapper">
-                   <img [ngSrc]="filter.imageUrl" [alt]="filter.name" fill>
-                   <div class="overlay">
-                     <i class="pi pi-play"></i>
-                     <span>Utiliser</span>
-                   </div>
-                 </div>
-   
-                 <div class="card-info">
-                   <h4>{{ filter.name || 'Filtre TikTok' }}</h4>
-                   <span class="usage">
-                     <i class="pi pi-eye"></i> {{ filter.usageCount | number }}
-                   </span>
-                 </div>
-               </div>
+              @for (filter of tiktokFilters; track $index) {
+                <div class="filter-card tiktok"
+                  (click)="onFilterClick(filter)">
+    
+                  <div class="image-wrapper">
+                    <img [ngSrc]="filter.imageUrl" [alt]="filter.name" fill>
+                    <div class="overlay">
+                      <i class="pi pi-play"></i>
+                      <span>Utiliser</span>
+                    </div>
+                  </div>
+    
+                  <div class="card-info">
+                    <h4>{{ filter.name || 'Filtre TikTok' }}</h4>
+                    <span class="usage">
+                      <i class="pi pi-eye"></i> {{ filter.usageCount | number }}
+                    </span>
+                  </div>
+                </div>
+              }
              </div>
            </div>
         }
@@ -71,24 +73,26 @@
             </div>
   
             <div class="filters-grid">
-              <div class="filter-card snapchat" *ngFor="let filter of snapchatFilters; trackBy: trackByFilterId"
-                (click)="onFilterClick(filter)">
-  
-                <div class="image-wrapper">
-                  <img [ngSrc]="filter.imageUrl" [alt]="filter.name" fill>
-                  <div class="overlay">
-                    <i class="pi pi-camera"></i>
-                    <span>Scanner</span>
+              @for (filter of snapchatFilters; track $index) {
+                <div class="filter-card snapchat"
+                  (click)="onFilterClick(filter)">
+    
+                  <div class="image-wrapper">
+                    <img [ngSrc]="filter.imageUrl" [alt]="filter.name" fill>
+                    <div class="overlay">
+                      <i class="pi pi-camera"></i>
+                      <span>Scanner</span>
+                    </div>
+                  </div>
+    
+                  <div class="card-info">
+                    <h4>{{ filter.name || 'Filtre Snapchat' }}</h4>
+                    <span class="usage">
+                      <i class="pi pi-eye"></i> {{ filter.usageCount | number }}
+                    </span>
                   </div>
                 </div>
-  
-                <div class="card-info">
-                  <h4>{{ filter.name || 'Filtre Snapchat' }}</h4>
-                  <span class="usage">
-                    <i class="pi pi-eye"></i> {{ filter.usageCount | number }}
-                  </span>
-                </div>
-              </div>
+              }
             </div>
           </div>
         }

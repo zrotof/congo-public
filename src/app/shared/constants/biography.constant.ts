@@ -8,9 +8,9 @@ export const BIOGRAPHY_DATA = [
     ],
     images: [
       "../../../../../../images/biography/origins/congo-map.jpg",
-      "../../../../../../images/denis.jpeg",
-      "../../../../../../images/jeune-congolais.png",
-      "../../../../../../images/parti-congolais-du-travail.png",
+      "../../../../../../images/denis.webp",
+      "../../../../../../images/jeunes-congolais.webp",
+      "../../../../../../images/parti-congolais-du-travail.webp",
     ]
   },
   {
@@ -23,7 +23,7 @@ export const BIOGRAPHY_DATA = [
     ],
     images: [
       "../../../../../../images/biography/arms/sassou.avif",
-      "../../../../../../images/parti-congolais-du-travail.png",
+      "../../../../../../images/parti-congolais-du-travail.webp",
       "../../../../../../images/biography/arms/sassou-pct.jpg",
       "../../../../../../images/biography/arms/pct.jpg",
       "../../../../../../images/biography/arms/pct-sassou.png",

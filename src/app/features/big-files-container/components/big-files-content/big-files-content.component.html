@@ -11,7 +11,7 @@
             @for (detail of data().details; track $index) {
             <div class="data">
                 <div class="image-wrapper">
-                    <img [ngSrc]="detail.image" alt="" fill>
+                    <img [ngSrc]="detail.image" [alt]="detail.header" fill>
                 </div>
                 <div class="texts">
                     <h3> {{detail.header}} </h3>

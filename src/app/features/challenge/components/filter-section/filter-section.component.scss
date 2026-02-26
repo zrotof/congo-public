@@ -124,7 +124,7 @@ $bg-color: #002b5c; // Bleu Nuit demandé
 
         .filters-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(4, 1fr);
           gap: 1rem;
 
           .filter-card {
@@ -156,7 +156,7 @@ $bg-color: #002b5c; // Bleu Nuit demandé
             .image-wrapper {
               position: relative;
               width: 100%;
-              height: 15rem;
+              height: 18.5rem;
 
               img {
                 object-fit: cover;
@@ -231,7 +231,7 @@ $bg-color: #002b5c; // Bleu Nuit demandé
 
 @media (max-width: 1024px) {
   .filters-section {
-      padding: 4rem 0;
+    padding: 4rem 0;
 
     .content {
 
@@ -266,68 +266,14 @@ $bg-color: #002b5c; // Bleu Nuit demandé
           }
         }
       }
-    }
-  }
-}
 
-@media (max-width: 768px) {
-  .filters-section {
-      padding: 4rem 0;
-
-    .content {
       .filters-content {
-        gap: 4rem;
-
         .platform-group {
-          .platform-header {
-
-            h3 {
-              font-size: 1.3rem;
-            }
-          }
-
           .filters-grid {
-            grid-template-columns: repeat(2, 1fr);
-
             .filter-card {
               .image-wrapper {
-                position: relative;
-                width: 100%;
-                height: 15rem;
-
-                img {
-                  object-fit: cover;
-                }
-
-                .overlay {
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  background: rgba(0, 0, 0, 0.6);
-                  display: flex;
-                  flex-direction: column;
-                  align-items: center;
-                  justify-content: center;
-                  gap: 0.5rem;
-                  opacity: 0;
-                  transition: opacity 0.3s ease;
-
-                  i {
-                    font-size: 2rem;
-                    color: white;
-                  }
-
-                  span {
-                    font-weight: 600;
-                    letter-spacing: 1px;
-                    text-transform: uppercase;
-                    font-size: 0.9rem;
-                  }
-                }
+                height: 14.5rem;
               }
-
             }
           }
         }
@@ -338,26 +284,58 @@ $bg-color: #002b5c; // Bleu Nuit demandé
 
 @media (max-width: 768px) {
   .filters-section {
-      padding: 4rem 0;
-
     .content {
       .filters-content {
-        gap: 4rem;
-
         .platform-group {
 
           .filters-grid {
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: repeat(2, 1fr);
 
             .filter-card {
               .image-wrapper {
-                height: 14rem;
-
-                img {
-                  object-fit: cover;
-                }
+                height: 18rem;
               }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
+
+@media (max-width: 425px) {
+  .filters-section {
+    .content {
+      .filters-content {
+        .platform-group {
+          .filters-grid {
+            gap: 0.7rem;
+
+            .filter-card {
+              .image-wrapper {
+                height: 12rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .filters-section {
+    .content {
+      .filters-content {
+        .platform-group {
+          .filters-grid {
+            gap: 0.5rem;
+
+            .filter-card {
+              .image-wrapper {
+                height: 10rem;
+              }
             }
           }
         }

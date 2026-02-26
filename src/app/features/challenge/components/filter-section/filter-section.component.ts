@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { DecimalPipe, NgOptimizedImage } from '@angular/common';
 import { SnapFilter } from '../../../../core/models/snapfilter.model';
 
 @Component({
@@ -8,8 +8,8 @@ import { SnapFilter } from '../../../../core/models/snapfilter.model';
   templateUrl: './filter-section.component.html',
   styleUrls: ['./filter-section.component.scss'],
   imports: [
-    CommonModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    DecimalPipe
   ]
 })
 

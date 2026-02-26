@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# On bloque les fichiers techniques inutiles au SEO
+Disallow: /data/
+Disallow: /icons/
+
+# Indiquer l'emplacement du sitemap (Obligatoire)
+Sitemap: https://dsn-2026.com/sitemap.xml
