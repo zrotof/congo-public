@@ -42,7 +42,7 @@ export class AppComponent {
       this.socketService.connect();
 
       // Utilise la même clé partout
-      const hasVisited = localStorage.getItem('already_visite');
+      const hasVisited = localStorage.getItem('already_visited');
 
       if (!hasVisited) {
         this.displayPage = false;

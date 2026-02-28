@@ -43,7 +43,7 @@ export default `<!DOCTYPE html><html lang="en" data-beasties-container><head>
 
 <body><!--nghm-->
   <app-root ng-version="19.2.18" ngh="0" ng-server-context="ssg"><!----></app-root>
-<link rel="modulepreload" href="chunk-XPEBFWLC.js"><link rel="modulepreload" href="chunk-5PZRECRI.js"><link rel="modulepreload" href="chunk-USVJGKQZ.js"><link rel="modulepreload" href="chunk-223ZRAGK.js"><link rel="modulepreload" href="chunk-KTUFAE2G.js"><script src="polyfills-B6TNHZQ6.js" type="module"></script><script src="main-PT4PABFK.js" type="module"></script>
+<link rel="modulepreload" href="chunk-XPEBFWLC.js"><link rel="modulepreload" href="chunk-5PZRECRI.js"><link rel="modulepreload" href="chunk-USVJGKQZ.js"><link rel="modulepreload" href="chunk-223ZRAGK.js"><link rel="modulepreload" href="chunk-KTUFAE2G.js"><script src="polyfills-B6TNHZQ6.js" type="module"></script><script src="main-BDBTMKD3.js" type="module"></script>
 <link rel="modulepreload" href="chunk-7TA5OBDW.js">
 <link rel="modulepreload" href="chunk-3YURJR2P.js">
 

@@ -45,6 +45,6 @@ export default `<!doctype html>
 
 <body ngcm="">
   <app-root></app-root>
-<link rel="modulepreload" href="chunk-XPEBFWLC.js"><link rel="modulepreload" href="chunk-5PZRECRI.js"><link rel="modulepreload" href="chunk-USVJGKQZ.js"><link rel="modulepreload" href="chunk-223ZRAGK.js"><link rel="modulepreload" href="chunk-KTUFAE2G.js"><script src="polyfills-B6TNHZQ6.js" type="module"></script><script src="main-PT4PABFK.js" type="module"></script></body>
+<link rel="modulepreload" href="chunk-XPEBFWLC.js"><link rel="modulepreload" href="chunk-5PZRECRI.js"><link rel="modulepreload" href="chunk-USVJGKQZ.js"><link rel="modulepreload" href="chunk-223ZRAGK.js"><link rel="modulepreload" href="chunk-KTUFAE2G.js"><script src="polyfills-B6TNHZQ6.js" type="module"></script><script src="main-BDBTMKD3.js" type="module"></script></body>
 
 </html>`;
