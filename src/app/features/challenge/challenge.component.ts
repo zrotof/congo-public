@@ -44,6 +44,7 @@ export default class ChallengeComponent implements OnInit {
   isLoading = this.challengeService.isLoading;
   error = this.challengeService.error;
   isConnected = this.challengeService.isConnected;
+  progress = this.challengeService.progress;
 
   // ✅ Ce signal contient la valeur à passer
   totalVisits = this.globalStatsService.totalVisits;

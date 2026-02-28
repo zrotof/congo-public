@@ -8,28 +8,28 @@ export default {
   {
     "renderMode": 2,
     "preload": [
-      "chunk-FHM65A6T.js",
-      "chunk-OFLREHOG.js",
-      "chunk-5FLBR2AU.js",
-      "chunk-NDM677HP.js",
-      "chunk-GGCOLAIW.js"
+      "chunk-QZPQLEA3.js",
+      "chunk-2IGEVF4P.js",
+      "chunk-TD4DC6IM.js",
+      "chunk-7XN3NRXD.js",
+      "chunk-JREVMSHC.js"
     ],
     "route": "/"
   },
   {
     "renderMode": 2,
     "preload": [
-      "chunk-PQGUFJ5H.js",
+      "chunk-VHYJ2FQI.js",
       "chunk-QTKY4V7F.js",
-      "chunk-OCUQQB4A.js"
+      "chunk-RVA7YD3C.js"
     ],
     "route": "/biographie"
   },
   {
     "renderMode": 2,
     "preload": [
-      "chunk-EHYZPPQN.js",
-      "chunk-B3HXNSPU.js"
+      "chunk-7TA5OBDW.js",
+      "chunk-3YURJR2P.js"
     ],
     "route": "/grands-dossiers"
   },
@@ -41,11 +41,11 @@ export default {
 ],
   entryPointToBrowserMapping: undefined,
   assets: {
-    'index.csr.html': {size: 7336, hash: '51d66bfe39dea6b1ee006f25031fd1bd6706abe59941349cf86491f0d93eef1d', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 6809, hash: '6eff6ec4d5121d1973296687c59021cab312a6a29aaca408151904b680dee72c', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
-    'biographie/index.html': {size: 21614, hash: '4f2437fe3f73c3bd889af9e94000073e8b902ddda1afdca676ac47401d157b03', text: () => import('./assets-chunks/biographie_index_html.mjs').then(m => m.default)},
-    'index.html': {size: 21718, hash: 'c04df745ff7ddb5357efc1015921bcba805741e5569ba988ebe000096d21f378', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
-    'grands-dossiers/index.html': {size: 21562, hash: '6faa3d4fd8e46372578424fc167323b57c2901cf362167adbc7973b179de8a5b', text: () => import('./assets-chunks/grands-dossiers_index_html.mjs').then(m => m.default)},
+    'index.csr.html': {size: 7356, hash: '362de97aa3c101d07e0ee225636e8d1ebfad54652b5f316a9b558f740b6c5a21', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 6829, hash: '0bb1f68aae32a19ce48918da19265d9d1db9b11b25a78852e05075020b5b7688', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'index.html': {size: 21738, hash: '650b4b2fbd039c7d4921f26514be22624e5449a142fa0b2a7769b37a2730f5b6', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
+    'biographie/index.html': {size: 21634, hash: '5d71a0bdee3f11f9a6efcecf11b778c4db76cb935131abc5208d720c3148d10b', text: () => import('./assets-chunks/biographie_index_html.mjs').then(m => m.default)},
+    'grands-dossiers/index.html': {size: 21582, hash: '3a555532f2a3290fd28e630c3a7fd6611e40c4ae7809e3f6cc4389768ebd9211', text: () => import('./assets-chunks/grands-dossiers_index_html.mjs').then(m => m.default)},
     'styles-BT3CCORC.css': {size: 360570, hash: '5bibTOhwSrY', text: () => import('./assets-chunks/styles-BT3CCORC_css.mjs').then(m => m.default)}
   },
 };

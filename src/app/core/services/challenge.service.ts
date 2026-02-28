@@ -25,11 +25,9 @@ export class ChallengeService implements OnDestroy {
   private _originalImageUrl = signal<string | null>(null);
   private _isRevealed = signal<boolean>(false);
 
-  // ✅ PROPRIÉTÉS PUBLIQUES (Pour corriger l'erreur TS)
+  // Propriétés publiques
   isLoading = signal<boolean>(false);
   error = signal<string | null>(null);
-  
-  // ✅ Exposer le signal de connexion du socket service
   isConnected = this.socketService.connectedSignal;
 
   // Computed
@@ -40,13 +38,15 @@ export class ChallengeService implements OnDestroy {
     return {
       ...c,
       currentViews: s?.currentViews ?? c.currentViews,
-      isRevealed: s?.isRevealed ?? c.isRevealed,
-      progress: s?.progress ?? (c.currentViews / c.targetViews) * 100
+      isRevealed: s?.isRevealed ?? c.isRevealed ?? false,
+      // Utilisation directe du progress backend
+      progress: s?.progress ?? c.progress ?? 0
     };
   });
 
   currentViews = computed(() => this.challenge()?.currentViews ?? 0);
   isRevealed = computed(() => this._isRevealed());
+  progress = computed(() => this.challenge()?.progress ?? 0);
   
   imageUrl = computed(() => {
     const c = this._challenge();
@@ -68,7 +68,9 @@ export class ChallengeService implements OnDestroy {
         if (res.data) {
           this._challenge.set(res.data);
           this._isRevealed.set(res.data.isRevealed ?? false);
-          if (res.data.isRevealed) this._originalImageUrl.set(res.data.imageUrl!);
+          if (res.data.isRevealed && res.data.imageUrl) {
+             this._originalImageUrl.set(res.data.imageUrl);
+          }
           
           this.initSocketAndJoin();
         } else {
@@ -83,10 +85,10 @@ export class ChallengeService implements OnDestroy {
     });
   }
 
+  // ... (Reste du code Socket identique) ...
+  
   private initSocketAndJoin(): void {
     if (this.isListening) return;
-
-    // Pas de connect() ici, c'est géré par AppComponent
     this.setupListeners();
     this.isListening = true;
 
@@ -125,7 +127,6 @@ export class ChallengeService implements OnDestroy {
   }
 
   leaveChallenge(): void {
-    // ✅ On n'émet que si on est connecté pour éviter les warnings
     if (this.socketService.isConnected()) {
       this.socketService.emit('LEAVE_CHALLENGE');
     }

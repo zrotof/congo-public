@@ -12,8 +12,36 @@
 
         @if (isRevealed() === false) {
         <div class="visitors-counter">
-            <span class="counter">{{ displayCount() }}</span>
-            <p>Citoyens Congolais mobilisés</p>
+            <!-- Chiffre principal -->
+            <span class="counter">{{ displayCount() | number}}</span>
+            
+            <!-- Détails (Loader + Texte) -->
+            <div class="counter-details">
+                
+                <!-- Loader Circulaire -->
+                <div class="circular-loader">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <!-- Cercle de fond -->
+                        <circle cx="20" cy="20" r="18" class="bg"></circle>
+                        
+                        <!-- Cercle de progression -->
+                        <!-- stroke-dasharray="113" correspond à la circonférence complète -->
+                        <circle cx="20" cy="20" r="18" class="progress" 
+                                stroke-dasharray="113"
+                                [style.stroke-dashoffset]="strokeDashoffset()">
+                        </circle>
+                    </svg>
+                    <!-- Pourcentage au centre (Optionnel) -->
+                    <span class="percent">{{ displayProgress() | number:'1.0-0' }}%</span>
+                </div>
+
+                <!-- Texte -->
+                <div class="labels">
+                    <span>CITOYENS</span>
+                    <span>ENGAGÉS</span>
+                </div>
+
+            </div>
         </div>
         }
     </div>

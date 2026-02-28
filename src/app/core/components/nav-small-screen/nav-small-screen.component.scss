@@ -45,3 +45,18 @@
     }
 
 }
+
+@media (max-width: 768px) {
+    .navigation-small-screen {
+        .links {
+            li {
+                a {
+                    span {
+                        font-size: 1em;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

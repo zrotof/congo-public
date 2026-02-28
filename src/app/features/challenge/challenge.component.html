@@ -4,7 +4,9 @@
       <app-challenge-hero 
         [imageUrl]="imageUrl()!" 
         [isRevealed]="isRevealed()" 
-        [count]="currentViews()">
+        [currentViews]="currentViews()"
+        [progress]="progress()"
+        >
       </app-challenge-hero>
     } @placeholder {
       <app-challenge-hero-skeleton></app-challenge-hero-skeleton>

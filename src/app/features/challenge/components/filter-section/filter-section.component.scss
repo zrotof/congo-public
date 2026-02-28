@@ -256,6 +256,10 @@ $bg-color: #002b5c; // Bleu Nuit demandé
             color: var(--project-white-secondary-color);
             width: fit-content;
           }
+
+          h2{
+            text-align: center;
+          }
         }
 
         .total-counter {
