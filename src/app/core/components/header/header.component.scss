@@ -315,6 +315,20 @@ header {
     }
 }
 
+.mask-project{
+    background: rgba(0, 0, 0, 0.721) !important;
+ backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+    .project-dialog {
+        border: none;
+    
+        .p-dialog-content {
+            padding: 0 !important;
+            overflow: hidden;
+        }
+    }
+}
+
 @media all and (max-width: 1125px) {
     header {
         .content {

@@ -1,14 +1,14 @@
-import { Component, ElementRef, ViewChild, inject, effect } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ElementRef, ViewChild, inject, effect, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ChatbotService } from '../../core/services/chatbot.service';
 
 @Component({
   selector: 'app-chatbot',
   standalone: true,
-  imports: [CommonModule, FormsModule],
   templateUrl: './chatbot.component.html',
-  styleUrls: ['./chatbot.component.scss']
+  styleUrls: ['./chatbot.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  imports: [FormsModule],
 })
 export class ChatbotComponent {
   public chatbotService = inject(ChatbotService); // Public pour accéder aux signals dans le HTML

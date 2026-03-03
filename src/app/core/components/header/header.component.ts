@@ -7,6 +7,7 @@ import { MenuItem, MessageService } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
 import { DialogModule } from 'primeng/dialog';
 import { NavSmallScreenComponent } from '../nav-small-screen/nav-small-screen.component';
+import { ProgramComponent } from '../program/program.component';
 
 
 @Component({
@@ -21,7 +22,8 @@ import { NavSmallScreenComponent } from '../nav-small-screen/nav-small-screen.co
     DialogModule,
     RouterLink,
     RouterLinkActive,
-    NavSmallScreenComponent
+    NavSmallScreenComponent,
+    ProgramComponent
 ]
 })
 
@@ -36,7 +38,8 @@ export class HeaderComponent implements OnInit{
   visibleSidebar!: boolean;
   displayMenu: boolean = false;
   backgroundedHeader !: boolean;
-  onLive  = true;
+
+  displayProjectModal = false;
 
   constructor(
     private _renderer: Renderer2,
@@ -99,6 +102,15 @@ export class HeaderComponent implements OnInit{
     }
 
     this.displayMenu = !this.displayMenu;
+  }
+
+  openProjectModal() {
+    this.displayProjectModal = true;
+  }
+
+  onCloseEventHandler(e : any){
+    console.log("i'm clicked")
+    this.displayProjectModal = false;
   }
 
   menuForSmallScreenHandler(value: boolean) {

@@ -36,7 +36,7 @@ export class AppComponent {
 
   protected isBrowser = isPlatformBrowser(inject(PLATFORM_ID))
 
-  ngOnInit() {    
+  ngOnInit() {
     if (this.isBrowser) {
       // 1. D'abord, on lance la connexion Socket UNIQUE
       this.socketService.connect();

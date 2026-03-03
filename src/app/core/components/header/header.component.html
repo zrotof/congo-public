@@ -17,7 +17,7 @@
           <a routerLink="/grands-dossiers" routerLinkActive="active-link">Grands Dossiers</a>
         </li>
         <li>
-          <button>Projet de société</button>
+          <button (click)="openProjectModal()">Projet de société</button>
         </li>
       </ul>
     </nav>
@@ -38,7 +38,7 @@
     position="right"
     [draggable]="false"
     [blockScroll]="true"
-    header="MATOMBA 2025"
+    header="DSN 2026"
     styleClass="nav-small-screen"
     maskStyleClass="mask-nav-small-screen"
   >
@@ -46,5 +46,19 @@
       (onNavigationOnSmallScreenEvent)="menuForSmallScreenHandler($event)"
     >
     </app-nav-small-screen>
+  </p-dialog>
+
+  <p-dialog 
+    [(visible)]="displayProjectModal" 
+    [modal]="true" 
+    [draggable]="false" 
+    [resizable]="false"
+    [blockScroll]="true"
+    [showHeader]="false"
+    styleClass="project-dialog"
+    maskStyleClass="mask-project"
+    [style]="{width: '1000px', maxWidth: '95vw'}"
+    >    
+    <app-program (closeEventTrigger)="onCloseEventHandler($event)"></app-program>
   </p-dialog>
 </header>

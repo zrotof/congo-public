@@ -1,11 +1,17 @@
 // Couleurs
 $primary: #009543; // Vert Congo
-$accent: #DC241F;  // Rouge Congo
+$accent: #DC241F; // Rouge Congo
 $dark: #1a1a1a;
 $light: #ffffff;
 $grey: #f3f4f6;
 $msg-bot-bg: #ffffff;
 $msg-user-bg: $primary;
+
+ul {
+  list-style-position: inside !important;
+  padding-left: 0 !important;
+  margin-top: 0.8rem;
+}
 
 // Bouton Flottant
 .chat-trigger {
@@ -26,13 +32,22 @@ $msg-user-bg: $primary;
   align-items: center;
   justify-content: center;
 
-  &:hover { transform: scale(1.1); }
-  &.hidden { transform: scale(0) rotate(180deg); opacity: 0; pointer-events: none; }
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &.hidden {
+    transform: scale(0) rotate(180deg);
+    opacity: 0;
+    pointer-events: none;
+  }
 
   .notification-dot {
     position: absolute;
-    top: 2px; right: 2px;
-    width: 14px; height: 14px;
+    top: 2px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
     background: $accent;
     border-radius: 50%;
     border: 2px solid white;
@@ -59,7 +74,10 @@ $msg-user-bg: $primary;
   opacity: 0;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-  &.open { transform: scale(1); opacity: 1; }
+  &.open {
+    transform: scale(1);
+    opacity: 1;
+  }
 
   // Header
   .chat-header {
@@ -76,30 +94,59 @@ $msg-user-bg: $primary;
       gap: 1rem;
 
       .avatar {
-        width: 45px; height: 45px;
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
         overflow: hidden;
         border: 2px solid white;
         background: white;
-        img { width: 100%; height: 100%; object-fit: cover; }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
 
       .text-info {
-        h3 { margin: 0; font-size: 1rem; font-weight: 700; }
+        h3 {
+          margin: 0;
+          font-size: 1rem;
+          font-weight: 700;
+        }
+
         .status {
-          font-size: 0.75rem; opacity: 0.9;
-          display: flex; align-items: center; gap: 5px;
-          .dot { width: 8px; height: 8px; background: #4CAF50; border-radius: 50%; }
+          font-size: 0.75rem;
+          opacity: 0.9;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          .dot {
+            width: 8px;
+            height: 8px;
+            background: #4CAF50;
+            border-radius: 50%;
+          }
         }
       }
     }
 
     .close-btn {
-      background: rgba(255,255,255,0.2);
-      border: none; width: 32px; height: 32px;
-      border-radius: 50%; color: white; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      &:hover { background: rgba(255,255,255,0.3); }
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
     }
   }
 
@@ -117,11 +164,11 @@ $msg-user-bg: $primary;
       display: flex;
       gap: 0.5rem;
       max-width: 85%;
-      
+
       &.user {
         align-self: flex-end;
         flex-direction: row-reverse; // Mettre la bulle à droite
-        
+
         .message-bubble {
           background: $msg-user-bg;
           color: white;
@@ -131,19 +178,27 @@ $msg-user-bg: $primary;
 
       &.bot {
         align-self: flex-start;
-        
+
         .message-bubble {
           background: $msg-bot-bg;
           color: $dark;
           border-radius: 18px 18px 18px 0;
-          box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
       }
 
       .msg-avatar {
-        width: 28px; height: 28px; flex-shrink: 0;
-        border-radius: 50%; overflow: hidden;
-        img { width: 100%; height: 100%; object-fit: cover; }
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
 
       .message-bubble {
@@ -159,7 +214,7 @@ $msg-user-bg: $primary;
   .chat-footer {
     padding: 1rem;
     background: white;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
 
     .input-wrapper {
       display: flex;
@@ -178,17 +233,26 @@ $msg-user-bg: $primary;
       }
 
       button {
-        width: 35px; height: 35px;
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
         background: $primary;
         color: white;
         border: none;
         cursor: pointer;
-        display: flex; align-items: center; justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         transition: background 0.2s;
 
-        &:hover:not(:disabled) { background: darken($primary, 5%); }
-        &:disabled { background: #ccc; cursor: not-allowed; }
+        &:hover:not(:disabled) {
+          background: darken($primary, 5%);
+        }
+
+        &:disabled {
+          background: #ccc;
+          cursor: not-allowed;
+        }
       }
     }
 
@@ -203,28 +267,52 @@ $msg-user-bg: $primary;
 
 // Animation Typing (...)
 .typing-indicator {
-  display: flex; gap: 4px; padding: 5px 0;
+  display: flex;
+  gap: 4px;
+  padding: 5px 0;
+
   span {
-    width: 6px; height: 6px;
+    width: 6px;
+    height: 6px;
     background: #bbb;
     border-radius: 50%;
     animation: bounce 1.4s infinite ease-in-out both;
-    &:nth-child(1) { animation-delay: -0.32s; }
-    &:nth-child(2) { animation-delay: -0.16s; }
+
+    &:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -0.16s;
+    }
   }
 }
 
 @keyframes bounce {
-  0%, 80%, 100% { transform: scale(0); }
-  40% { transform: scale(1); }
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
 }
 
 // Mobile
 @media (max-width: 480px) {
   .chat-window {
-    width: 100%; height: 100%;
-    bottom: 0; right: 0;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
     border-radius: 0;
   }
-  .chat-trigger { bottom: 1rem; right: 1rem; }
+
+  .chat-trigger {
+    bottom: 1rem;
+    right: 1rem;
+  }
 }

@@ -1,0 +1,30 @@
+<div class="project-modal-content">
+    <div class="image-side">
+        <div class="image-wrapper">
+            <img ngSrc="/images/denis.webp" alt="Denis Sassou N'Guesso" fill class="cover-img">
+        </div>
+    </div>
+
+    <div class="text-side">
+        <div class="top">
+            <button (click)="onCloseButtonClicked()">
+                <i class="pi pi-times"></i>
+                Fermer
+            </button>
+            <h2>L'ACCÉLÉRATION DE LA MARCHE VERS LE DÉVELOPPEMENT</h2>
+
+            <p>
+                Découvrez les 10 axes stratégiques pour bâtir un Congo plus fort, plus solidaire et plus prospère.
+                Un engagement concret pour l'unité, le travail et le progrès.
+            </p>
+        </div>
+
+        <a (click)="onCloseButtonClicked()"
+            href="/pdf/projet-de-societe_denis-sassou-nguesso_presidence-mars-2026.pdf"
+            download="Projet-de-societe_denis-sassou-nguesso_presidence-mars-2026" target="_blank"
+            rel="noopener noreferrer" class="download-btn">
+            Je télécharge le projet
+            <i class="pi pi-download"></i>
+        </a>
+    </div>
+</div>

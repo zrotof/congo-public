@@ -7,13 +7,13 @@
 
 <!-- Fenêtre du Chat -->
 <div class="chat-window" [class.open]="isOpen">
-  
+
   <!-- Header -->
   <div class="chat-header">
     <div class="header-info">
       <div class="avatar">
         <!-- Mets une vraie image ici -->
-        <img src="images/chatbot/congo.webp" alt="Chat bot"> 
+        <img src="images/chatbot/congo.webp" alt="Chat bot">
       </div>
       <div class="text-info">
         <h3>Assistant Campagne</h3>
@@ -29,43 +29,42 @@
 
   <!-- Corps des messages -->
   <div class="chat-body" #scrollContainer>
-    
-    <div *ngFor="let msg of chatbotService.messages()" 
-         class="message-wrapper" 
-         [class.user]="msg.isUser"
-         [class.bot]="!msg.isUser">
-      
 
+    @for (msg of chatbotService.messages(); track $index) {
+    <div class="message-wrapper" [class.user]="msg.isUser" [class.bot]="!msg.isUser">
       <div class="message-bubble">
-        
         <!-- Cas normal : Texte -->
-        <div *ngIf="!msg.isLoading" [innerHTML]="msg.text"></div>
+        @if (!msg.isLoading) {
+        <div [innerHTML]="msg.text"></div>
+        }
 
         <!-- Cas chargement : Dots animation -->
-        <div *ngIf="msg.isLoading" class="typing-indicator">
+        @if (msg.isLoading) {
+        <div class="typing-indicator">
           <span></span><span></span><span></span>
         </div>
-
+        }
       </div>
     </div>
-
+    }
   </div>
 
   <!-- Footer Input -->
   <div class="chat-footer">
     <div class="input-wrapper">
-      <input 
-        type="text" 
-        placeholder="Posez votre question..." 
-        [(ngModel)]="userInput"
-        (keyup.enter)="sendMessage()">
-      
+      <input type="text" placeholder="Posez votre question..." [(ngModel)]="userInput" (keyup.enter)="sendMessage()">
+
       <button (click)="sendMessage()" [disabled]="!userInput.trim()">
         <i class="pi pi-send"></i>
       </button>
     </div>
     <div class="footer-note">
-      Réponses basées sur le projet officiel <a href="" target="_blank">à télécharger ici</a>
+      Réponses basées sur le projet officiel
+      <a href="/pdf/projet-de-societe_denis-sassou-nguesso_presidence-mars-2026.pdf"
+        download="Projet-de-societe_denis-sassou-nguesso_presidence-mars-2026" target="_blank" rel="noopener noreferrer"
+        class="download-btn">
+        à télécharger ici
+      </a>
     </div>
   </div>
 
