@@ -43,9 +43,9 @@ export default `<!DOCTYPE html><html lang="en" data-beasties-container><head>
 
 <body><!--nghm-->
   <app-root ng-version="19.2.18" ngh="0" ng-server-context="ssg"><!----></app-root>
-<link rel="modulepreload" href="chunk-XPEBFWLC.js"><link rel="modulepreload" href="chunk-5PZRECRI.js"><link rel="modulepreload" href="chunk-USVJGKQZ.js"><link rel="modulepreload" href="chunk-223ZRAGK.js"><link rel="modulepreload" href="chunk-KTUFAE2G.js"><script src="polyfills-B6TNHZQ6.js" type="module"></script><script src="main-KWEFRNIF.js" type="module"></script>
-<link rel="modulepreload" href="chunk-QZPQLEA3.js">
-<link rel="modulepreload" href="chunk-2IGEVF4P.js">
+<link rel="modulepreload" href="chunk-XPEBFWLC.js"><link rel="modulepreload" href="chunk-5PZRECRI.js"><link rel="modulepreload" href="chunk-USVJGKQZ.js"><link rel="modulepreload" href="chunk-223ZRAGK.js"><link rel="modulepreload" href="chunk-KTUFAE2G.js"><script src="polyfills-B6TNHZQ6.js" type="module"></script><script src="main-MFSVQS7H.js" type="module"></script>
+<link rel="modulepreload" href="chunk-SIAJT2XA.js">
+<link rel="modulepreload" href="chunk-CX2ZLCRV.js">
 <link rel="modulepreload" href="chunk-TD4DC6IM.js">
 <link rel="modulepreload" href="chunk-7XN3NRXD.js">
 <link rel="modulepreload" href="chunk-JREVMSHC.js">
