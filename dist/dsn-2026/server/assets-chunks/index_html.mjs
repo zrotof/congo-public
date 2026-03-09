@@ -2,7 +2,7 @@ export default `<!DOCTYPE html><html lang="en" data-beasties-container><head>
   <meta charset="utf-8">
   <base href="/">
   
-  <title>Denis Sassou N'Guesso 2026 | Ensemble, poursuivons la marche</title>
+  <title>L'ACCELÉRATION DE LA MARCHE VERS LE DÉVELOPPEMENT</title>
   <meta name="description" content="Site officiel de la mobilisation. Découvrez le projet de société, participez au challenge citoyen et échangez avec notre assistant virtuel. Unité, Travail, Progrès.">
   <meta name="keywords" content="Congo, Présidentielle 2026, Denis Sassou N'Guesso, DSN, Campagne, Politique, Brazzaville, Projet de société">
   <meta name="author" content="Équipe de Campagne DSN">
@@ -12,7 +12,7 @@ export default `<!DOCTYPE html><html lang="en" data-beasties-container><head>
   <!-- Open Graph / Facebook / WhatsApp -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dsn-2026.com/">
-  <meta property="og:title" content="Ensemble, poursuivons la marche | DSN 2026">
+  <meta property="og:title" content="L'ACCELÉRATION DE LA MARCHE VERS LE DÉVELOPPEMENT">
   <meta property="og:description" content="Rejoignez la dynamique ! Découvrez le projet de société, utilisez nos filtres exclusifs et posez vos questions à notre IA dédiée.">
   <meta property="og:image" content="https://dsn-2026.com/images/share-preview.webp">
   <meta property="og:image:width" content="1200">
@@ -24,7 +24,7 @@ export default `<!DOCTYPE html><html lang="en" data-beasties-container><head>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:domain" content="dsn-2026.com">
   <meta name="twitter:url" content="https://dsn-2026.com/">
-  <meta name="twitter:title" content="Denis Sassou N'Guesso 2026 | Le Projet">
+  <meta name="twitter:title" content="L'ACCELÉRATION DE LA MARCHE VERS LE DÉVELOPPEMENT">
   <meta name="twitter:description" content="Découvrez le projet de société et participez à la mobilisation citoyenne. Ensemble pour l'avenir du Congo.">
   <meta name="twitter:image" content="https://dsn-2026.com/images/share-preview.webp">
 
